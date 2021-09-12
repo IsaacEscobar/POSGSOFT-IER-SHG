@@ -105,13 +105,17 @@ void View::mostrarMenu()
         cin >> opcionUsuario;
         switch (opcionUsuario) 
         {
-        case 1: menuAsistente();
+        case 1:
+            menuAsistente();
             break;
-        case 2:menuJurado();
+        case 2:
+            menuJurado();
             break;
-        case 3: menuDirector();
+        case 3:
+            menuDirector();
             break;
-        case 4: menuReportes();
+        case 4: 
+            menuReportes();
             break;
         case 0: cout << "Hasta luego";
             break;

@@ -18,6 +18,7 @@ class Acta
 {
     private:
         string nombreTrabajo;
+        string autor;
         int numeroTrabajo;
         string tipoTrabajo;
         string fecha;
@@ -30,6 +31,8 @@ class Acta
         Acta();
         string getNombreTrabajo();
         void setNombreTrabajo(string nombreTrabajo);
+        string getAutor();
+        void setAutor(string Autor);
         int getNumeroTrabajo();
         void setNumeroTrabajo(int numeroTrabajo);
         string getTipoTrabajo();
@@ -43,6 +46,7 @@ class Acta
         array<string, 4> getJurados();
         array<string, 4> getDirectores();
         vector<Criterio> getCriterios();
+        void mostrarActa();
 };
 
 #endif // ACTA_H

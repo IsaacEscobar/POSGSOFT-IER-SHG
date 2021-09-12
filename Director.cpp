@@ -1,19 +1,16 @@
 
-#include <iostream>
 #include "Director.h"
-#include "Acta.h"
-#include "Criterio.h"
 
 Director::Director()
 {
 
 }
-void Director::modificarCriterio(Acta)
+void Director::modificarCriterio(Acta acta)
 {
     
-
 }
-void Director::crearCriterio(Acta)
+
+void Director::crearCriterio(Acta acta)
 {
     int identificador;
     string enunciado, comentarios;
@@ -23,7 +20,8 @@ void Director::crearCriterio(Acta)
     {
         cout << "Ingrese numero de identificador: ";
         cin >> identificador;
-        if (this->Criterio.find(identificador) != this->Criterio.end())
+        vector<Criterio> listaCriterios = acta.getCriterios();
+        if (find(listaCriterios.begin(), listaCriterios.end(), identificador) != acta.getCriterios().end())
 	    {
 	    	existeIdentificador = true;
             cout << "Identificador ya existente, indique otro.\n";
@@ -39,21 +37,19 @@ void Director::crearCriterio(Acta)
     nuevoCriterio.setComentarios(comentarios);
     nuevoCriterio.setPonderacion(ponderacion);
     nuevoCriterio.setCalificaciones(calificaciones);
-    Criterio[identificador] = nuevoCriterio;
-    cout << nuevoCriterio.getIdentificador() " con identificador No." << nuevoCriterio.getEnuciado() << "Enunciados :" << nuevoCriterio.getComentarios() << "Comentarios :" << nuevoCriterio.getPonderacion()
-    << "Ponderacion: " << nuevoCriterio.getCalificaciones() << "Calificaciones"
-    " Nuevo criterio creado.\n";
+    acta.getCriterios()[identificador] = nuevoCriterio;
+    cout << nuevoCriterio.getIdentificador() << " con identificador No." << nuevoCriterio.getEnunciado() 
+    << "\nEnunciados :" << nuevoCriterio.getComentarios() << "\nComentarios :" << nuevoCriterio.getPonderacion()
+    << "\nPonderacion: " << nuevoCriterio.getCalificaciones() << "\nCalificaciones";
+    cout << "\nNuevo criterio creado.\n";
 
 }
 
-
-}
-
-void Criterio::mostrarCriterio()
-{
-    cout << "identificador" << identificador << "\n";
-    cout << "enunciado" << enunciado << "\n";
-    cout << "ponderacion" << ponderacion << "\n";
-    cout << "comentarios" << comentarios << "\n";
-    cout << "calificaciones" << calificaciones << "\n";
-}
+// void Director::mostrarCriterio()
+// {
+//     cout << "identificador" << identificador << "\n";
+//     cout << "enunciado" << enunciado << "\n";
+//     cout << "ponderacion" << ponderacion << "\n";
+//     cout << "comentarios" << comentarios << "\n";
+//     cout << "calificaciones" << calificaciones << "\n";
+// }

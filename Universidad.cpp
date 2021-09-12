@@ -97,7 +97,29 @@ void Universidad::crearDirector()
 
 void Universidad::menuAsistente(Asistente asistente)
 {
-
+    int opcionusuario;
+    do
+    {
+        cout << "1. Crear un acta.";
+        cout << "2. Ver historicos de actas.";
+        cout << "0. Volver.";
+        cout << "Digite el numero: ";
+        cin >> opcionusuario;
+        switch(opcionusuario)
+        {
+            case 1:
+                asistente.generarActa();
+                break;
+            case 2:
+                asistente.mostrarNumActasPoseidas();
+                
+                break;
+            case 0:
+                break;
+            default: cout << "Opcion no contemplada, intentelo de nuevo\n";
+                break;
+        }
+    } while(opcionusuario != 0);
 }
 
 void Universidad::ingresarComoAsistente()

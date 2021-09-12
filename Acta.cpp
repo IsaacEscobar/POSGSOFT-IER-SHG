@@ -5,6 +5,17 @@ Acta::Acta()
 
 }
 
+void Acta::mostrarActa()
+{
+    cout << "Nombre: " << nombreTrabajo << "\n";
+    cout << "Autor: " << autor << "\n";
+    cout << "Numero: " << numeroTrabajo << "\n";
+    cout << "Tipo: " << tipoTrabajo << "\n";
+    cout << "Fecha: " << fecha << "\n";
+    cout << "Obvservaciones: " << obvAdicionales << "\n";
+    cout << "Condiciones: " << condiciones << "\n";
+}
+
 string Acta::getNombreTrabajo() 
 {
     return nombreTrabajo;
@@ -13,6 +24,16 @@ string Acta::getNombreTrabajo()
 void Acta::setNombreTrabajo(string nombreTrabajo) 
 {
     this->nombreTrabajo = nombreTrabajo;
+}
+
+string Acta::getAutor() 
+{
+    return autor;
+}
+
+void Acta::setAutor(string autor) 
+{
+    this->autor = autor;
 }
 
 int Acta::getNumeroTrabajo()

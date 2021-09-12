@@ -1,4 +1,3 @@
-#include <iostream>
 #include "Criterio.h"
 
 // constructor por defecto
