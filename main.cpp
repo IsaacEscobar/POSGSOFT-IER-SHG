@@ -1,6 +1,7 @@
 #include "View.h"
 
-int main() {
+int main() 
+{
     View view;
     view.mostrarMenu();
     return 0;
