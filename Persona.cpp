@@ -2,7 +2,6 @@
 
 // constructor por defecto
 Persona::Persona()
-    
 {
 	this->nombre = nombre;
 	this->documento = documento;	

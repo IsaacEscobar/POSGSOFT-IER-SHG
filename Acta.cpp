@@ -65,6 +65,11 @@ void Acta::setCondiciones(string condiciones)
     this->condiciones = condiciones;
 }
 
+vector<Criterio> Acta::getCriterios()
+{
+    return criterios;
+}
+
 // array<Persona, 2> Acta::getJurados()
 // {
 //     return jurados;

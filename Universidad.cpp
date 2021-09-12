@@ -1,6 +1,7 @@
 #include "Universidad.h"
 
-Universidad::Universidad() {
+Universidad::Universidad()
+{
 
 }
 
@@ -94,6 +95,11 @@ void Universidad::crearDirector()
     " ha sido agregado.\n";
 }
 
+void Universidad::menuAsistente(Asistente asistente)
+{
+
+}
+
 void Universidad::ingresarComoAsistente()
 {
     int numDocumento;
@@ -112,16 +118,26 @@ void Universidad::ingresarComoAsistente()
         Asistente asistenteActual = pAsistente->second;
         if(asistenteActual.getDocumento() == numDocumento)
         {
-
+            menuAsistente(asistenteActual);
         }
     }
+}
+
+void Universidad::menuJurado(Jurado jurado)
+{
+
 }
 
 void Universidad::ingresarComoJurado()
 {
     int numDocumento;
     cout << "Jurados en lista:\n";
-} 
+}
+
+void Universidad::menuDirector(Director director)
+{
+    
+}
 
 void Universidad::ingresarComoDirector()
 {

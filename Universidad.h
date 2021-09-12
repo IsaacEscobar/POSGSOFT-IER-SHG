@@ -35,6 +35,9 @@ class Universidad
         void ingresarComoAsistente();
         void ingresarComoJurado();
         void ingresarComoDirector();
+        void menuAsistente(Asistente asistente);
+        void menuJurado(Jurado jurado);
+        void menuDirector(Director director);
 };
 
 #endif // UNIVERSIDAD_H

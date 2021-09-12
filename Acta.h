@@ -42,6 +42,7 @@ class Acta
         void setCondiciones(string condiciones);
         array<string, 4> getJurados();
         array<string, 4> getDirectores();
+        vector<Criterio> getCriterios();
 };
 
 #endif // ACTA_H
