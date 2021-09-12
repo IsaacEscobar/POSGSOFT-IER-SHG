@@ -22,7 +22,7 @@ void Criterio::mostrarCriterios()
     cout << "calificaciones" << calificaciones << "\n";
 }
 
-void Criterio::setIdentificador()
+void Criterio::setIdentificador(int identificador)
 {
 	this->identificador = identificador;
 }
@@ -32,7 +32,7 @@ int Criterio::getIdentificador()
 	return identificador;
 }
 
-void Criterio::setEnunciado()
+void Criterio::setEnunciado(string enunciado)
 {
 	this->enunciado = enunciado;
 }
@@ -42,7 +42,7 @@ string Criterio::getEnunciado()
 	return enunciado;
 }
 
-void Criterio::setPonderacion()
+void Criterio::setPonderacion(float ponderacion)
 {
 	this->ponderacion = ponderacion;
 }
@@ -52,7 +52,7 @@ int Criterio::getPonderacion()
 	return ponderacion;
 }
 
-void Criterio::setComentarios()
+void Criterio::setComentarios(string comentarios)
 {
 	this->comentarios = comentarios;
 }
@@ -62,7 +62,7 @@ string Criterio::getComentarios()
 	return comentarios;
 }
 
-void Criterio::setCalificaciones()
+void Criterio::setCalificaciones(float calificaciones)
 {
 	this->calificaciones = calificaciones;
 }
