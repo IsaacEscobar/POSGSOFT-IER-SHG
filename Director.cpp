@@ -1,4 +1,3 @@
-
 #include "Director.h"
 
 Director::Director()
@@ -20,8 +19,8 @@ void Director::crearCriterio(Acta acta)
     {
         cout << "Ingrese numero de identificador: ";
         cin >> identificador;
-        vector<Criterio> listaCriterios = acta.getCriterios();
-        if (find(listaCriterios.begin(), listaCriterios.end(), identificador) != acta.getCriterios().end())
+        map<int, Criterio> listaCriterios = acta.getCriterios();
+        if (listaCriterios.find(identificador) != acta.getCriterios().end())
 	    {
 	    	existeIdentificador = true;
             cout << "Identificador ya existente, indique otro.\n";

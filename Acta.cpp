@@ -86,7 +86,7 @@ void Acta::setCondiciones(string condiciones)
     this->condiciones = condiciones;
 }
 
-vector<Criterio> Acta::getCriterios()
+map<int, Criterio> Acta::getCriterios()
 {
     return criterios;
 }

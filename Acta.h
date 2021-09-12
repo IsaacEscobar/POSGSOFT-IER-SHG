@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <stdlib.h>
-#include <vector>
+#include <map>
 #include <array>
 #include "Criterio.h"
 
@@ -12,7 +12,7 @@ using std::cout;
 using std::endl;
 using std::string;
 using std::array;
-using std::vector;
+using std::map;
 
 class Acta 
 {
@@ -26,7 +26,7 @@ class Acta
         string condiciones;
         array<string, 4> jurados;
         array<string, 4> directores;
-        vector<Criterio> criterios;
+        map<int, Criterio> criterios;
     public:
         Acta();
         string getNombreTrabajo();
@@ -45,7 +45,7 @@ class Acta
         void setCondiciones(string condiciones);
         array<string, 4> getJurados();
         array<string, 4> getDirectores();
-        vector<Criterio> getCriterios();
+        map<int, Criterio> getCriterios();
         void mostrarActa();
 };
 
