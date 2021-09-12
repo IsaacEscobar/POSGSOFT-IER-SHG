@@ -23,13 +23,14 @@ public:
     Persona();
     Persona(string nombre);
     Persona(int documento);
+    void mostrarInformacion(string nombre, int documento);
 
     // Gets and sets
 
 	string getNombre();
-	string setNombre();
+	string setNombre(string nombre);
 	int getDocumento();
-	int setDocumento();
+	int setDocumento(int documento);
 };
 
 #endif // PERSONA_H
