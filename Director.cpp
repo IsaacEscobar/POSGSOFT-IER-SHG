@@ -15,11 +15,11 @@ void Director::crearCriterio(Acta acta)
     string enunciado, comentarios;
     float ponderacion, calificaciones;
     bool existeIdentificador = true;
+    map<int, Criterio> listaCriterios = acta.getCriterios();
     do
     {
         cout << "Ingrese numero de identificador: ";
         cin >> identificador;
-        map<int, Criterio> listaCriterios = acta.getCriterios();
         if (listaCriterios.find(identificador) != acta.getCriterios().end())
 	    {
 	    	existeIdentificador = true;
@@ -36,7 +36,7 @@ void Director::crearCriterio(Acta acta)
     nuevoCriterio.setComentarios(comentarios);
     nuevoCriterio.setPonderacion(ponderacion);
     nuevoCriterio.setCalificaciones(calificaciones);
-    acta.getCriterios()[identificador] = nuevoCriterio;
+    listaCriterios[identificador] = nuevoCriterio;
     cout << nuevoCriterio.getIdentificador() << " con identificador No." << nuevoCriterio.getEnunciado() 
     << "\nEnunciados :" << nuevoCriterio.getComentarios() << "\nComentarios :" << nuevoCriterio.getPonderacion()
     << "\nPonderacion: " << nuevoCriterio.getCalificaciones() << "\nCalificaciones";
