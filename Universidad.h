@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <stdlib.h>
+#include <ios>
+#include <limits>
 #include <map>
 #include <iterator>
 #include "Acta.h"
