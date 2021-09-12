@@ -19,6 +19,7 @@ void Universidad::crearAsistente()
         if (this->asistentes.find(numDocumento) != this->asistentes.end())
 	    {
 	    	existeDocumento = true;
+            cout << "Documento existente, indique otro.\n";
 	    }
 	    else
 	    {
@@ -48,6 +49,7 @@ void Universidad::crearJurado()
         if (this->jurados.find(numDocumento) != this->jurados.end())
 	    {
 	    	existeDocumento = true;
+            cout << "Documento existente, indique otro.\n";
 	    }
 	    else
 	    {
@@ -77,6 +79,7 @@ void Universidad::crearDirector()
         if (this->directores.find(numDocumento) != this->directores.end())
 	    {
 	    	existeDocumento = true;
+            cout << "Documento existente, indique otro.\n";
 	    }
 	    else
 	    {
