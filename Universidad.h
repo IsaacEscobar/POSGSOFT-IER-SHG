@@ -28,5 +28,7 @@ class Universidad
     public:
         Universidad();
         void crearAsistente();
+        void crearJurado();
+        void crearDirector();
 }
 #endif // UNIVERSIDAD_H
