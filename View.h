@@ -21,6 +21,6 @@ class View
         void menuJurado();
         void menuDirector();
         void menuReportes();
-}
+};
 
 #endif // VIEW_H

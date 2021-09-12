@@ -19,6 +19,7 @@ class Asistente: public Persona
     public:
         Asistente();
         Acta generarActa();
+        vector<int> getActas();
 }
 
 #endif // ASISTENTE_H

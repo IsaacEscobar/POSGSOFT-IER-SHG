@@ -5,7 +5,12 @@ Asistente::Asistente()
 
 }
 
-void Asistente::generarActa()
+vector<int> Asistente::getActas()
+{
+    return actas;
+}
+
+Acta Asistente::generarActa()
 {
 
 }
