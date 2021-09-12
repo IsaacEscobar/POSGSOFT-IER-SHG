@@ -1,4 +1,3 @@
-#include <iostream>
 #include "Persona.h"
 
 // constructor por defecto
@@ -28,7 +27,7 @@ string Persona::getNombre()
 
 void Persona::setDocumento(int documento)
 {
-	this->documento;
+	this->documento = documento;
 }
 
 int Persona::getDocumento()

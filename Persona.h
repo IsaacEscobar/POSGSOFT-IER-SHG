@@ -5,7 +5,6 @@
 #include <string>
 #include "Acta.h"
 
-
 //librerias que incluimos 
 using std::cout;
 using std::cin;

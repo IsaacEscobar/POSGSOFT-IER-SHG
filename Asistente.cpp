@@ -5,9 +5,9 @@ Asistente::Asistente()
 
 }
 
-vector<int> Asistente::getActas()
+void Asistente::mostrarNumActasPoseidas()
 {
-    return actas;
+    
 }
 
 Acta Asistente::generarActa()

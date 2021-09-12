@@ -19,7 +19,7 @@ class Asistente: public Persona
     public:
         Asistente();
         Acta generarActa();
-        vector<int> getActas();
+        void mostrarNumActasPoseidas();
 };
 
 #endif // ASISTENTE_H

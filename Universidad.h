@@ -30,6 +30,9 @@ class Universidad
         void crearAsistente();
         void crearJurado();
         void crearDirector();
+        void ingresarComoAsistente();
+        void ingresarComoJurado();
+        void ingresarComoDirector();
 };
 
 #endif // UNIVERSIDAD_H

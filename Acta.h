@@ -6,7 +6,6 @@
 #include <vector>
 #include <array>
 #include "Criterio.h"
-#include "Persona.h"
 
 using std::cin;
 using std::cout;
@@ -24,8 +23,8 @@ class Acta
         string fecha;
         string obvAdicionales;
         string condiciones;
-        array<Persona, 2> jurados;
-        array<Persona, 2> directores;
+        array<string, 4> jurados;
+        array<string, 4> directores;
         vector<Criterio> criterios;
     public:
         Acta();
@@ -41,8 +40,8 @@ class Acta
         void setObvAdicionales(string obvAdicionales);
         string getCondiciones();
         void setCondiciones(string condiciones);
-        array<Persona, 2> getJurados();
-        array<Persona, 2> getDirectores();
+        array<string, 4> getJurados();
+        array<string, 4> getDirectores();
 };
 
 #endif // ACTA_H

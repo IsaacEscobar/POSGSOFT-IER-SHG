@@ -4,7 +4,7 @@ Universidad::Universidad() {
 
 }
 
-void Universidad::crearAsistente() 
+void Universidad::crearAsistente()
 {
     int numDocumento;
     string nombre;
@@ -17,5 +17,69 @@ void Universidad::crearAsistente()
     nuevoAsistente.setDocumento(numDocumento);
     asistentes[numDocumento] = nuevoAsistente;
     cout << nuevoAsistente.getNombre() << " con documento No." << nuevoAsistente.getDocumento() << 
-    " ha sido añadido.\n";
+    " ha sido agregado.\n";
+}
+
+void Universidad::crearJurado()
+{
+    int numDocumento;
+    string nombre;
+    cout << "Ingrese su nombre: ";
+    getline(cin, nombre);
+    cout << "Ingrese su No. de documento: ";
+    cin >> numDocumento;
+    Jurado nuevoJurado;
+    nuevoJurado.setNombre(nombre);
+    nuevoJurado.setDocumento(numDocumento);
+    jurados[numDocumento] = nuevoJurado;
+    cout << nuevoJurado.getNombre() << " con documento No." << nuevoJurado.getDocumento() << 
+    " ha sido agregado.\n";
+}
+
+void Universidad::crearDirector()
+{
+    int numDocumento;
+    string nombre;
+    cout << "Ingrese su nombre: ";
+    getline(cin, nombre);
+    cout << "Ingrese su No. de documento: ";
+    cin >> numDocumento;
+    Director nuevoDirector;
+    nuevoDirector.setNombre(nombre);
+    nuevoDirector.setDocumento(numDocumento);
+    directores[numDocumento] = nuevoDirector;
+    cout << nuevoDirector.getNombre() << " con documento No." << nuevoDirector.getDocumento() << 
+    " ha sido agregado.\n";
+}
+
+void Universidad::ingresarComoAsistente()
+{
+    int numDocumento;
+    for(map<int, Asistente>::iterator pAsistente = asistentes.begin(); pAsistente != asistentes.end();
+     pAsistente++)
+    {
+        Asistente asistenteActual = pAsistente->second;
+        cout << asistenteActual.getNombre() << " - " << asistenteActual.getDocumento() << "\n";
+    }
+    cout << "Ingrese su documento: ";
+    cin >> numDocumento;
+    for(map<int, Asistente>::iterator pAsistente = asistentes.begin(); pAsistente != asistentes.end();
+     pAsistente++)
+    {
+        Asistente asistenteActual = pAsistente->second;
+        if(asistenteActual.getDocumento() == numDocumento)
+        {
+
+        }
+    }
+}
+
+void Universidad::ingresarComoJurado()
+{
+
+} 
+
+void Universidad::ingresarComoDirector()
+{
+
 }

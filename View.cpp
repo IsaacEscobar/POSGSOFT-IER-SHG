@@ -5,7 +5,7 @@ View::View()
 
 }
 
-View::menuAsistente()
+void View::menuAsistente()
 {
     int opcionUsuario;
     do 
@@ -15,22 +15,23 @@ View::menuAsistente()
         cout << "0. Volver.\n";
         cout << "Digite el numero: ";
         cin >> opcionUsuario;
-        switch() 
+        switch(opcionUsuario) 
         {
             case 1:
                 this->javeriana.crearAsistente();
                 break;
             case 2:
+                this->javeriana.ingresarComoAsistente();
                 break;
             case 0:
                 break;
             default: cout << "Opcion no contemplada, intentelo de nuevo\n";
                 break;
         }
-    }
+    } while(opcionUsuario != 0);
 }
 
-View::menuJurado() 
+void View::menuJurado() 
 {
     int opcionUsuario, numDocumento;
     string nombre;
@@ -41,21 +42,23 @@ View::menuJurado()
         cout << "0. Volver.\n";
         cout << "Digite el numero: ";
         cin >> opcionUsuario;
-        switch() 
+        switch(opcionUsuario) 
         {
             case 1:
+                this->javeriana.crearJurado();
                 break;
             case 2:
+                this->javeriana.ingresarComoJurado();
                 break;
             case 0:
                 break;
             default: cout << "Opcion no contemplada, intentelo de nuevo\n";
                 break;
         }
-    }
+    } while(opcionUsuario != 0);
 }
 
-View::menuDirector() 
+void View::menuDirector() 
 {
     int opcionUsuario, numDocumento;
     string nombre;
@@ -66,26 +69,28 @@ View::menuDirector()
         cout << "0. Volver.\n";
         cout << "Digite el numero: ";
         cin >> opcionUsuario;
-        switch() 
+        switch(opcionUsuario) 
         {
             case 1:
+                this->javeriana.crearDirector();
                 break;
             case 2:
+                this->javeriana.ingresarComoDirector();
                 break;
             case 0:
                 break;
             default: cout << "Opcion no contemplada, intentelo de nuevo\n";
                 break;
         }
-    }
+    } while(opcionUsuario != 0);
 }
 
-View::menuReportes() 
+void View::menuReportes() 
 {
     int opcionUsuario;
 }
 
-View::mostrarMenu() 
+void View::mostrarMenu() 
 {
     int opcionUsuario;
     do 
