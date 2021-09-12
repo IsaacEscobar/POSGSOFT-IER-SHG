@@ -25,7 +25,7 @@ public:																												  //Metodos
 	int getIdentificador();
 	void setIdentificador(int identificador);
 	string getEnunciado();
-	void setEnunciado(string enunciado)
+	void setEnunciado(string enunciado);
 	float getPonderacion();
 	void setPonderacion(float ponderacion);
 	string getComentarios();
