@@ -9,6 +9,7 @@ void Universidad::crearAsistente()
     int numDocumento;
     string nombre;
     cout << "Ingrese su nombre: ";
+    cin.ignore (std::numeric_limits<std::streamsize>::max(), '\n'); 
     getline(cin, nombre);
     cout << "Ingrese su No. de documento: ";
     cin >> numDocumento;
@@ -25,6 +26,7 @@ void Universidad::crearJurado()
     int numDocumento;
     string nombre;
     cout << "Ingrese su nombre: ";
+    cin.ignore (std::numeric_limits<std::streamsize>::max(), '\n'); 
     getline(cin, nombre);
     cout << "Ingrese su No. de documento: ";
     cin >> numDocumento;
@@ -41,6 +43,7 @@ void Universidad::crearDirector()
     int numDocumento;
     string nombre;
     cout << "Ingrese su nombre: ";
+    cin.ignore (std::numeric_limits<std::streamsize>::max(), '\n'); 
     getline(cin, nombre);
     cout << "Ingrese su No. de documento: ";
     cin >> numDocumento;
@@ -55,6 +58,7 @@ void Universidad::crearDirector()
 void Universidad::ingresarComoAsistente()
 {
     int numDocumento;
+    cout << "Asistentes en lista:\n";
     for(map<int, Asistente>::iterator pAsistente = asistentes.begin(); pAsistente != asistentes.end();
      pAsistente++)
     {
@@ -76,10 +80,12 @@ void Universidad::ingresarComoAsistente()
 
 void Universidad::ingresarComoJurado()
 {
-
+    int numDocumento;
+    cout << "Jurados en lista:\n";
 } 
 
 void Universidad::ingresarComoDirector()
 {
-
+    int numDocumento;
+    cout << "Directores en lista:\n";
 }
