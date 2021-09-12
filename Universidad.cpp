@@ -8,11 +8,23 @@ void Universidad::crearAsistente()
 {
     int numDocumento;
     string nombre;
+    bool existeDocumento = true;
     cout << "Ingrese su nombre: ";
     cin.ignore (std::numeric_limits<std::streamsize>::max(), '\n'); 
     getline(cin, nombre);
-    cout << "Ingrese su No. de documento: ";
-    cin >> numDocumento;
+    do 
+    {
+        cout << "Ingrese su No. de documento: ";
+        cin >> numDocumento;
+        if (this->asistentes.find(numDocumento) != this->asistentes.end())
+	    {
+	    	existeDocumento = true;
+	    }
+	    else
+	    {
+		    existeDocumento = false;
+	    }
+    } while(existeDocumento);
     Asistente nuevoAsistente;
     nuevoAsistente.setNombre(nombre);
     nuevoAsistente.setDocumento(numDocumento);
@@ -25,11 +37,23 @@ void Universidad::crearJurado()
 {
     int numDocumento;
     string nombre;
+    bool existeDocumento = true;
     cout << "Ingrese su nombre: ";
     cin.ignore (std::numeric_limits<std::streamsize>::max(), '\n'); 
     getline(cin, nombre);
-    cout << "Ingrese su No. de documento: ";
-    cin >> numDocumento;
+    do 
+    {
+        cout << "Ingrese su No. de documento: ";
+        cin >> numDocumento;
+        if (this->jurados.find(numDocumento) != this->jurados.end())
+	    {
+	    	existeDocumento = true;
+	    }
+	    else
+	    {
+		    existeDocumento = false;
+	    }
+    } while(existeDocumento);
     Jurado nuevoJurado;
     nuevoJurado.setNombre(nombre);
     nuevoJurado.setDocumento(numDocumento);
@@ -42,11 +66,23 @@ void Universidad::crearDirector()
 {
     int numDocumento;
     string nombre;
+    bool existeDocumento = true;
     cout << "Ingrese su nombre: ";
     cin.ignore (std::numeric_limits<std::streamsize>::max(), '\n'); 
     getline(cin, nombre);
-    cout << "Ingrese su No. de documento: ";
-    cin >> numDocumento;
+    do 
+    {
+        cout << "Ingrese su No. de documento: ";
+        cin >> numDocumento;
+        if (this->directores.find(numDocumento) != this->directores.end())
+	    {
+	    	existeDocumento = true;
+	    }
+	    else
+	    {
+		    existeDocumento = false;
+	    }
+    } while(existeDocumento);
     Director nuevoDirector;
     nuevoDirector.setNombre(nombre);
     nuevoDirector.setDocumento(numDocumento);
