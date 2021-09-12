@@ -65,12 +65,12 @@ void Acta::setCondiciones(string condiciones)
     this->condiciones = condiciones;
 }
 
-array<Jurado, 2> Acta::getJurados()
+array<Persona, 2> Acta::getJurados()
 {
     return jurados;
 }
 
-array<Director, 2> Acta::getDirectores()
+array<Persona, 2> Acta::getDirectores()
 {
     return directores;
 }

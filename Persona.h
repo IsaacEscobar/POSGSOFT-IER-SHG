@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include "Acta.h"
 
 
 //librerias que incluimos 
