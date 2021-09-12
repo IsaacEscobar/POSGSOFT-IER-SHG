@@ -28,9 +28,9 @@ public:
     // Gets and sets
 
 	string getNombre();
-	string setNombre(string nombre);
+	void setNombre(string nombre);
 	int getDocumento();
-	int setDocumento(int documento);
+	void setDocumento(int documento);
 };
 
 #endif // PERSONA_H

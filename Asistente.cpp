@@ -5,7 +5,7 @@ Asistente::Asistente()
 
 }
 
-Acta Asistente::generarActa()
+void Asistente::generarActa()
 {
 
 }
