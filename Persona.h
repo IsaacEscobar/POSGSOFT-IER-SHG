@@ -17,19 +17,19 @@ class Persona
 
 protected:
 	string nombre;
-	string documento;
+	int documento;
 
 public:
     Persona();
     Persona(string nombre);
-    Persona(string documento);
+    Persona(int documento);
 
     // Gets and sets
 
 	string getNombre();
 	string setNombre();
-	string getDocumento();
-	string setDocumento();
+	int getDocumento();
+	int setDocumento();
 };
 
 #endif // PERSONA_H
