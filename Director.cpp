@@ -16,12 +16,9 @@ void Director::modificarCriterio(Acta)
 void Director::crearCriterio(Acta)
 {
     int identificador;
-    string enunciado, comentarios, nombre;
+    string enunciado, comentarios;
     float ponderacion, calificaciones;
     bool existeIdentificador = true;
-    cout << "Ingrese su nombre: ";
-    cin.ignore (std::numeric_limits<std::streamsize>::max(), '\n'); 
-    getline(cin, nombre);
     do
     {
         cout << "Ingrese numero de identificador: ";
@@ -47,10 +44,6 @@ void Director::crearCriterio(Acta)
     << "Ponderacion: " << nuevoCriterio.getCalificaciones() << "Calificaciones"
     " Nuevo criterio creado.\n";
 
-    cout << nuevoCriterio.getNombre() << " con identificador No." << nuevoCriterio.getIdentificador() << "Enunciados :" 
-    << nuevoCriterio.getEnuciado() << "Comentarios :" << nuevoCriterio.getComentarios() << "Ponderacion: " << nuevoCriterio.getPonderacion()
-    << "Calificaciones" << nuevoCriterio.getCalificaciones()
-    " Nuevo cristerio creado.\n";
 }
 
 
