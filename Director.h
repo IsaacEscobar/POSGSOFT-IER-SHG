@@ -5,8 +5,8 @@
 #include <stdlib.h>
 #include <map>
 #include <iterator>
+#include "Persona.h"
 #include "Acta.h"
-#include "Director.h"
 
 using std::cin;
 using std::cout;
@@ -16,13 +16,13 @@ using std::string;
 using std::map;
 using std::iterator;
 
-class Director
+class Director: public Persona
 {
 	public:
 		Director();
 		void modificarCriterio(Acta);
 		void crearCriterio(Acta);
 		void mostrarCriterio();
-}
+};
 
 #endif // DIRECTOR_H

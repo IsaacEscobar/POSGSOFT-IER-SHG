@@ -13,7 +13,7 @@ Criterio::Criterio()
 }
 
 
-void Criterio::mostrarCriterios()
+void Criterio::mostrarCriterio(int indentificador, string enunciado, float ponderacion, string comentarios, float calificaciones)
 {
     cout << "identificador" << identificador << "\n";
     cout << "enunciado" << enunciado << "\n";
@@ -47,7 +47,7 @@ void Criterio::setPonderacion(float ponderacion)
 	this->ponderacion = ponderacion;
 }
 
-int Criterio::getPonderacion()
+float Criterio::getPonderacion()
 {
 	return ponderacion;
 }

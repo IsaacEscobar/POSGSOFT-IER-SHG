@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <vector>
 #include "Persona.h"
+#include "Acta.h"
 
 using std::cin;
 using std::cout;
@@ -20,6 +21,6 @@ class Asistente: public Persona
         Asistente();
         Acta generarActa();
         vector<int> getActas();
-}
+};
 
 #endif // ASISTENTE_H

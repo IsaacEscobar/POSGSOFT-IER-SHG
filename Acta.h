@@ -1,4 +1,4 @@
- #ifndef ACTA_H
+#ifndef ACTA_H
 #define ACTA_H
 
 #include <iostream>
@@ -6,6 +6,8 @@
 #include <vector>
 #include <array>
 #include "Criterio.h"
+#include "Jurado.h"
+#include "Director.h"
 
 using std::cin;
 using std::cout;
