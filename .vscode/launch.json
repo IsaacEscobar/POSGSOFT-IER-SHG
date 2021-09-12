@@ -1,0 +1,26 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "c:\\Users\\isake\\Desktop\\Ingenieria\\POO\\POO Trabajos\\Proyecto1-IsaacEscobar-StefaniaHurtado",
+      "environment": [],
+      "program": "c:\\Users\\isake\\Desktop\\Ingenieria\\POO\\POO Trabajos\\Proyecto1-IsaacEscobar-StefaniaHurtado\\build\\Debug\\outDebug",
+      "internalConsoleOptions": "openOnSessionStart",
+      "MIMode": "gdb",
+      "miDebuggerPath": "C:\\MinGW\\bin\\gdb.exe",
+      "externalConsole": false,
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}
