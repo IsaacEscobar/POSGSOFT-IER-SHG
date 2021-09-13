@@ -19,14 +19,18 @@ Acta Asistente::generarActa()
     int numeroTrabajo;
     Acta nuevaActa;
     cout << "Ingrese el nombre del trabajo:\n";
+    cin.ignore (std::numeric_limits<std::streamsize>::max(), '\n');
     getline(cin, nombreTrabajo);
     cout << "Ingrese quien es el autor:\n";
+    cin.ignore (std::numeric_limits<std::streamsize>::max(), '\n');
     getline(cin, autor);
     cout << "Digite el numero del trabajo:\n";
     cin >> numeroTrabajo;
     cout << "Ingrese el tipo de trabajo:\n";
+    cin.ignore (std::numeric_limits<std::streamsize>::max(), '\n');
     getline(cin, tipoTrabajo);
     cout << "Ingrese la fecha:\n";
+    cin.ignore (std::numeric_limits<std::streamsize>::max(), '\n');
     getline(cin, fecha);
     nuevaActa.setNombreTrabajo(nombreTrabajo);
     nuevaActa.setAutor(autor);
