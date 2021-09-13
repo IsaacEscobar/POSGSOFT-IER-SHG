@@ -24,8 +24,8 @@ class Acta
         string fecha;
         string obvAdicionales;
         string condiciones;
-        array<string, 4> jurados;
-        array<string, 4> directores;
+        string jurados[4];
+        string directores[4];
         map<int, Criterio> criterios;
     public:
         Acta();
@@ -43,8 +43,8 @@ class Acta
         void setObvAdicionales(string obvAdicionales);
         string getCondiciones();
         void setCondiciones(string condiciones);
-        array<string, 4> getJurados();
-        array<string, 4> getDirectores();
+        string* getJurados();
+        string* getDirectores();
         map<int, Criterio> getCriterios();
         void mostrarActa();
 };

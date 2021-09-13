@@ -17,6 +17,7 @@ using std::cout;
 using std::endl;
 using std::getline;
 using std::string;
+using std::to_string;
 using std::map;
 using std::iterator;
 
@@ -39,6 +40,9 @@ class Universidad
         void menuAsistente(Asistente asistente);
         void menuJurado(Jurado jurado);
         void menuDirector(Director director);
+        void generarActa(Asistente asistente);
+        void verificarJurados(Acta acta);
+        void verificarDirectores(Acta acta);
 };
 
 #endif // UNIVERSIDAD_H

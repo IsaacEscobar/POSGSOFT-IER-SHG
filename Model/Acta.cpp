@@ -91,12 +91,12 @@ map<int, Criterio> Acta::getCriterios()
     return criterios;
 }
 
-// array<Persona, 2> Acta::getJurados()
-// {
-//     return jurados;
-// }
+string* Acta::getJurados()
+{
+    return jurados;
+}
 
-// array<Persona, 2> Acta::getDirectores()
-// {
-//     return directores;
-// }
+string* Acta::getDirectores()
+{
+    return directores;
+}

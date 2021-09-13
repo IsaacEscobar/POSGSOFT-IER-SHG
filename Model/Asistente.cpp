@@ -34,6 +34,8 @@ Acta Asistente::generarActa(int numeroTrabajo)
     nuevaActa.setTipoTrabajo(tipoTrabajo);
     nuevaActa.setFecha(fecha);
     nuevaActa.setNumeroTrabajo(numeroTrabajo);
-    this->actas.insert(actas.end(), numeroTrabajo);
+    //actas.insert(actas.end(), numeroTrabajo);
+    actas.push_back(numeroTrabajo);
+    //actas[numeroTrabajo] = numeroTrabajo;
     return nuevaActa;
 }
