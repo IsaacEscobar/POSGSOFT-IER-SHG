@@ -1,4 +1,6 @@
 #include "Director.h"
+#include "Criterio.h"
+#include "Acta.h"
 
 Director::Director()
 {
@@ -20,19 +22,29 @@ void Director::modificarCriterio(Acta acta)
         cout << "Adicionar comentarios al proyecto:";
         cin >> comentarios;
         cout << "Ingrese ponderacion:";
+        if (listaCriterios.find(ponderacion) != acta.getCriterios().end())
+        {
+            listaCriterios[ponderacion].setPonderacion(ponderacion) *0.10
+            cout << " El valor de la ponderacion de este criterio es 10%. \n";
+        }
+        else 
+        {
+            listaCriterios[ponderacion].setPonderacion(ponderacion) != 0.10;
+            cout << "ingrese porcentaje de ponderacion para evaluar el criterio. \n";
+        }
         cin >> ponderacion;
-        cout << "Ingrese calificaciones";
-        cin >> calificaciones;
+        cout << "Ingrese calificaciones";.setPonderacion(ponderacion) 
         if (listaCriterios.find(calificaciones) != acta.getCriterios().end())
         {
-            listaCriterios[identificador].setCalificaciones(calificaciones);
+            listaCriterios[calificaciones].setCalificaciones(calificaciones) > 3.5;
             cout << "Aprobado.\n";
         }
         else
         {
-            listaCriterios[identificador].setCalificaciones(calificaciones);
+            listaCriterios[calificaciones].setCalificaciones(calificaciones) < 3.5;
             cout << "Rechazado. \n";
         }
+        cin >> calificaciones;
     } while(existeIdentificador);
 }
 
@@ -73,5 +85,17 @@ void Director::crearCriterio(Acta acta)
 
 void Director::mostrarCriterio(Acta acta)
 {
-    //getIdentificador(), getEnunciado(), getComentarios(), getPonderacion(), getCalificaciones();
+    cout << "Nombre: " << setNombreTrabajo(nombreTrabajo) << "\n";
+    cout << "Autor: " << setAutor(autor) << "\n";
+    cout << "Numero: " << setNumeroTrabajo(numeroTrabajo) << "\n";
+    cout << "Tipo: " << setTipoTrabajo(tipoTrabajo) << "\n";
+    cout << "Fecha: " << setFecha(fecha) << "\n";
+    cout << "Obvservaciones: " << setObvAdicionales(obvAdicionales) << "\n";
+    cout << "Condiciones: " << setCondiciones(condiciones) << "\n";
+    cout << "Identificador: " << setIdentificador(identificador) << "\n";
+    cout << "Enunciado: " << setEnunciado(enunciado) << "\n";
+    cout << "Comentarios: " << setComentarios(comentarios) << "\n";
+    cout << "Ponderacion: " << setPonderacion(ponderacion) << "\n";
+    cout << "Calificaciones: " << setCalificaciones(calificaciones << "\n";
 }
+    
