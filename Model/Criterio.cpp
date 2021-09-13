@@ -1,4 +1,5 @@
 #include "Criterio.h"
+#include "Acta.h"
 
 // constructor por defecto
 Criterio::Criterio()

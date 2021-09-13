@@ -6,6 +6,7 @@
 #include <map>
 #include <array>
 #include "Criterio.h"
+#include "Director.h"
 
 using std::cin;
 using std::cout;
@@ -47,6 +48,8 @@ class Acta
         array<string, 4> getDirectores();
         map<int, Criterio> getCriterios();
         void mostrarActa();
+        void mostrarJurados();
+        void mostrarDirectores();
 };
 
 #endif // ACTA_H

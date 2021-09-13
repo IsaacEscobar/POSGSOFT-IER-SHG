@@ -1,4 +1,7 @@
 #include "Acta.h"
+#include "Director.h"
+#include "Jurado.h"
+#include "Criterio.h"
 
 Acta::Acta()
 {
@@ -14,6 +17,38 @@ void Acta::mostrarActa()
     cout << "Fecha: " << fecha << "\n";
     cout << "Obvservaciones: " << obvAdicionales << "\n";
     cout << "Condiciones: " << condiciones << "\n";
+}
+
+void Acta::mostrarJurados()
+{
+    cout << "Nombre: " << setNombre(nombre) << "\n";
+    cout << "Documento: " << setDocumento(documento) << "\n";
+    cout << "Nombre del trabajo: " << setNombreTrabajo(nombreTrabajo) << "\n";
+    cout << "Autor: " << setAutor(autor) << "\n";
+    cout << "Numero: " << setNumeroTrabajo(numeroTrabajo) << "\n";
+    cout << "Tipo: " << setTipoTrabajo(tipoTrabajo) << "\n";
+    cout << "Fecha: " << setFecha(fecha) << "\n";
+    cout << "Obvservaciones: " << setObvAdicionales(obvAdicionales) << "\n";
+    cout << "Identificador: " << setIdentificador(identificador) << "\n";
+    cout << "Calificaciones: " << setCalificaciones(calificaciones << "\n";
+}
+
+void Acta::mostrarDirectores()
+{
+    cout << "Nombre: " << setNombre(nombre) << "\n";
+    cout << "Documento: " << setDocumento(documento) << "\n";
+    cout << "Nombre del trabajo: " << setNombreTrabajo(nombreTrabajo) << "\n";
+    cout << "Autor: " << setAutor(autor) << "\n";
+    cout << "Numero: " << setNumeroTrabajo(numeroTrabajo) << "\n";
+    cout << "Tipo: " << setTipoTrabajo(tipoTrabajo) << "\n";
+    cout << "Fecha: " << setFecha(fecha) << "\n";
+    cout << "Obvservaciones: " << setObvAdicionales(obvAdicionales) << "\n";
+    cout << "Condiciones: " << setCondiciones(condiciones) << "\n";
+    cout << "Identificador: " << setIdentificador(identificador) << "\n";
+    cout << "Enunciado: " << setEnunciado(enunciado) << "\n";
+    cout << "Comentarios: " << setComentarios(comentarios) << "\n";
+    cout << "Ponderacion: " << setPonderacion(ponderacion) << "\n";
+    cout << "Calificaciones: " << setCalificaciones(calificaciones << "\n";
 }
 
 string Acta::getNombreTrabajo() 
