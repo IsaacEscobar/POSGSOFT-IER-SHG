@@ -1,4 +1,6 @@
 #include "Director.h"
+#include "Criterio.h"
+#include "Acta.h"
 
 Director::Director()
 {
@@ -83,5 +85,17 @@ void Director::crearCriterio(Acta acta)
 
 void Director::mostrarCriterio(Acta acta)
 {
-    //getIdentificador(), getEnunciado(), getComentarios(), getPonderacion(), getCalificaciones();
+    cout << "Nombre: " << setNombreTrabajo(nombreTrabajo) << "\n";
+    cout << "Autor: " << setAutor(autor) << "\n";
+    cout << "Numero: " << setNumeroTrabajo(numeroTrabajo) << "\n";
+    cout << "Tipo: " << setTipoTrabajo(tipoTrabajo) << "\n";
+    cout << "Fecha: " << setFecha(fecha) << "\n";
+    cout << "Obvservaciones: " << setObvAdicionales(obvAdicionales) << "\n";
+    cout << "Condiciones: " << setCondiciones(condiciones) << "\n";
+    cout << "Identificador: " << setIdentificador(identificador) << "\n";
+    cout << "Enunciado: " << setEnunciado(enunciado) << "\n";
+    cout << "Comentarios: " << setComentarios(comentarios) << "\n";
+    cout << "Ponderacion: " << setPonderacion(ponderacion) << "\n";
+    cout << "Calificaciones: " << setCalificaciones(calificaciones << "\n";
 }
+    
