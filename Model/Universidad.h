@@ -29,6 +29,7 @@ class Universidad
         map<int, Director> directores;
     public:
         Universidad();
+        void mostrarReportes();
         void crearAsistente();
         void crearJurado();
         void crearDirector();

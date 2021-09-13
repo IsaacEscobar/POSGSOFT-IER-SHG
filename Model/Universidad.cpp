@@ -5,6 +5,11 @@ Universidad::Universidad()
 
 }
 
+void Universidad::mostrarReportes()
+{
+    return mostrarReportes;
+}
+
 void Universidad::crearAsistente()
 {
     int numDocumento;
