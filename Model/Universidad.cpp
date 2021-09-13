@@ -5,10 +5,10 @@ Universidad::Universidad()
 
 }
 
-void Universidad::mostrarReportes()
-{
-    return mostrarReportes;
-}
+// void Universidad::mostrarReportes()
+// {
+//     return mostrarReportes;
+// }
 
 void Universidad::crearAsistente()
 {
@@ -24,7 +24,6 @@ void Universidad::crearAsistente()
         cin >> numDocumento;
         if (this->asistentes.find(numDocumento) != this->asistentes.end())
 	    {
-	    	existeDocumento = true;
             cout << "Documento existente, indique otro.\n";
 	    }
 	    else
@@ -54,7 +53,6 @@ void Universidad::crearJurado()
         cin >> numDocumento;
         if (this->jurados.find(numDocumento) != this->jurados.end())
 	    {
-	    	existeDocumento = true;
             cout << "Documento existente, indique otro.\n";
 	    }
 	    else
@@ -84,7 +82,6 @@ void Universidad::crearDirector()
         cin >> numDocumento;
         if (this->directores.find(numDocumento) != this->directores.end())
 	    {
-	    	existeDocumento = true;
             cout << "Documento existente, indique otro.\n";
 	    }
 	    else
@@ -102,7 +99,9 @@ void Universidad::crearDirector()
 
 void Universidad::menuAsistente(Asistente asistente)
 {
-    int opcionusuario;
+    int opcionusuario, numeroTrabajo;
+    Acta nuevaActa;
+    bool existeActaPorNum = true;
     do
     {
         cout << "1. Crear un acta.\n";
@@ -113,7 +112,22 @@ void Universidad::menuAsistente(Asistente asistente)
         switch(opcionusuario)
         {
             case 1:
-                asistente.generarActa();
+                nuevaActa = asistente.generarActa();
+                do
+                {
+                    cout << "Digite el numero del trabajo:\n";
+                    cin >> numeroTrabajo;
+                    nuevaActa.setNumeroTrabajo(numeroTrabajo);
+                    if(this->actas.find(numeroTrabajo) != this->actas.end())
+                    {
+                        cout << "Numero de acta existente, use otro.";
+                    }
+                    else
+                    {
+                        existeActaPorNum = false;
+                        actas[numeroTrabajo] = nuevaActa;
+                    }
+                } while(existeActaPorNum);
                 break;
             case 2:
                 asistente.mostrarNumActasPoseidas();

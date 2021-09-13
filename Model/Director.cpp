@@ -23,17 +23,17 @@ void Director::modificarCriterio(Acta acta)
         cin >> ponderacion;
         cout << "Ingrese calificaciones";
         cin >> calificaciones;
-        if (listaCriterios.find(calificaciones) != acta.getCriterios().end()))
+        if (listaCriterios.find(calificaciones) != acta.getCriterios().end())
         {
-            setCalificaciones(calificaciones) >= 3.5;
+            listaCriterios[identificador].setCalificaciones(calificaciones);
             cout << "Aprobado.\n";
         }
         else
         {
-            setCalificaciones(calificaciones) < 3.5;
+            listaCriterios[identificador].setCalificaciones(calificaciones);
             cout << "Rechazado. \n";
         }
-    } 
+    } while(existeIdentificador);
 }
 
 void Director::crearCriterio(Acta acta)
@@ -71,7 +71,7 @@ void Director::crearCriterio(Acta acta)
 
 }
 
-void Director::mostrarCriterio(Acta)
-{
-    getIdentificador(), getEnunciado(), getComentarios(), getPonderacion(), getCalificaciones();
-}
+// void Director::mostrarCriterio(Acta)
+// {
+//     getIdentificador(), getEnunciado(), getComentarios(), getPonderacion(), getCalificaciones();
+// }
