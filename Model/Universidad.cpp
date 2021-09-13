@@ -52,7 +52,7 @@ void Universidad::crearJurado()
     {
         cout << "Ingrese su No. de documento: ";
         cin >> numDocumento;
-        if (this->directores.find(numDocumento) != this->directores.end())
+        if (this->jurados.find(numDocumento) != this->jurados.end())
 	    {
             existeDocumento = true;
             cout << "Documento existente, indique otro.\n";
