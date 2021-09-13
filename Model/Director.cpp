@@ -44,7 +44,7 @@ void Director::crearCriterio(Acta acta)
 
 }
 
- void Director::mostrarCriterio()
-{
-    getIdentificador(), getEnunciado(), getComentarios(), getPonderacion(), getCalificaciones();
-}
+// void Director::mostrarCriterio()
+// {
+//     getIdentificador(), getEnunciado(), getComentarios(), getPonderacion(), getCalificaciones();
+// }
