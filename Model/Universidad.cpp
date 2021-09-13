@@ -147,18 +147,18 @@ void Universidad::ingresarComoAsistente()
 
 void Universidad::menuJurado(Jurado jurado)
 {
-    int opcionusuario;
+    int opcionUsuario;
     do
     {
         cout << "1. Evaluar acta.\n";
         cout << "2. Exportar acta.\n";
         cout << "0. Volver.\n";
         cout << "Digite el numero: ";
-        cin >> opcionusuario;
-        switch(opcionusuario)
+        cin >> opcionUsuario;
+        switch(opcionUsuario)
         {
             case 1:
-                jurado.calificarActa();
+                jurado.calificarActa(actas[0]);
                 break;
             case 2:
                 jurado.exportarActa();
@@ -169,25 +169,24 @@ void Universidad::menuJurado(Jurado jurado)
             default: cout << "Opcion no contemplada, intentelo de nuevo\n";
                 break;
         }
-    } while(opcionusuario != 0);
+    } while(opcionUsuario != 0);
 }
 
-}
 
 void Universidad::ingresarComoJurado()
 {
     int numDocumento;
     cout << "Jurados en lista:\n";
 
-    for(map<int, Jurado>::iterator pJurado = jurado.begin(); pJurado != jurado.end();
+    for(map<int, Jurado>::iterator pJurado = jurados.begin(); pJurado != jurados.end();
      pJurado++)
     {
         Jurado juradoActual = pJurado->second;
-        cout << juradoActual.getNombre() << " - " << asistenteActual.getDocumento() << "\n";
+        cout << juradoActual.getNombre() << " - " << juradoActual.getDocumento() << "\n";
     }
     cout << "Ingrese su documento: ";
     cin >> numDocumento;
-    for(map<int, Jurado>::iterator pJurado = jurado.begin(); pJurado != jurado.end();
+    for(map<int, Jurado>::iterator pJurado = jurados.begin(); pJurado != jurados.end();
      pJurado++)
     {
         Jurado juradoActual = pJurado->second;
@@ -198,27 +197,24 @@ void Universidad::ingresarComoJurado()
     }
 }
 
-}
-
 void Universidad::menuDirector(Director director)
 {
-    
-int opcionusuario;
+    int opcionUsuario;
     do
     {
         cout << "1. Modificar criterios.\n";
         cout << "2. Anadir criterio.\n";
-        cout << "3. Mostrar cristerios"
+        cout << "3. Mostrar cristerios";
         cout << "0. Volver.\n";
         cout << "Digite el numero: ";
-        cin >> opcionusuario;
-        switch(opcionusuario)
+        cin >> opcionUsuario;
+        switch(opcionUsuario)
         {
             case 1:
-                director.modificarCriterio();
+                director.modificarCriterio(actas[0]);
                 break;
             case 2:
-                director.crearAsistente();
+                director.crearCriterio(actas[0]);
                 break;
             case 3:
                 director.mostrarCriterio();
@@ -227,9 +223,7 @@ int opcionusuario;
             default: cout << "Opcion no contemplada, intentelo de nuevo\n";
                 break;
         }
-    } while(opcionusuario != 0);
-}
-
+    } while(opcionUsuario != 0);
 }
 
 void Universidad::ingresarComoDirector()
@@ -237,7 +231,7 @@ void Universidad::ingresarComoDirector()
     int numDocumento;
     cout << "Directores en lista:\n";
 
-    for(map<int, Director>::iterator pDirector = director.begin(); pDirector != director.end();
+    for(map<int, Director>::iterator pDirector = directores.begin(); pDirector != directores.end();
      pDirector++)
     {
         Director directorActual = pDirector->second;
@@ -245,7 +239,7 @@ void Universidad::ingresarComoDirector()
     }
     cout << "Ingrese su documento: ";
     cin >> numDocumento;
-    for(map<int, Director>::iterator pDirector = director.begin(); pDirector != director.end();
+    for(map<int, Director>::iterator pDirector = directores.begin(); pDirector != directores.end();
      pDirector++)
     {
         Director directorActual = pDirector->second;
@@ -254,6 +248,4 @@ void Universidad::ingresarComoDirector()
             menuDirector(directorActual);
         }
     }
-}
-
 }

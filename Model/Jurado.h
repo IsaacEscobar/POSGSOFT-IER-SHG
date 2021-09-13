@@ -19,7 +19,8 @@ class Jurado: public Persona
 {
 	public:
 		Jurado();
-		void calificarActa(Acta);
+		void calificarActa(Acta acta);
+		void exportarActa();
 };
 
 #endif // JURADO_H
