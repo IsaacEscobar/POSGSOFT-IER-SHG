@@ -44,11 +44,7 @@ void Director::crearCriterio(Acta acta)
 
 }
 
-// void Director::mostrarCriterio()
-// {
-//     cout << "identificador" << identificador << "\n";
-//     cout << "enunciado" << enunciado << "\n";
-//     cout << "ponderacion" << ponderacion << "\n";
-//     cout << "comentarios" << comentarios << "\n";
-//     cout << "calificaciones" << calificaciones << "\n";
-// }
+ void Director::mostrarCriterio()
+{
+    getIdentificador(), getEnunciado(), getComentarios(), getPonderacion(), getCalificaciones();
+}
