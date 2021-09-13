@@ -6,7 +6,34 @@ Director::Director()
 }
 void Director::modificarCriterio(Acta acta)
 {
-    
+    int identificador;
+    string enunciado, comentarios;
+    float ponderacion, calificaciones;
+    bool existeIdentificador = true;
+    map<int, Criterio> listaCriterios = acta.getCriterios();
+    do
+    {
+        cout <<"Ingrese numero de identificador: ";
+        cin >> identificador;
+        cout << "Ingrese enunciado del proyecto:";
+        cin >> enunciado;
+        cout << "Adicionar comentarios al proyecto:";
+        cin >> comentarios;
+        cout << "Ingrese ponderacion:";
+        cin >> ponderacion;
+        cout << "Ingrese calificaciones";
+        cin >> calificaciones;
+        if (listaCriterios.find(calificaciones) != acta.getCriterios().end()))
+        {
+            setCalificaciones(calificaciones) >= 3.5;
+            cout << "Aprobado.\n";
+        }
+        else
+        {
+            setCalificaciones(calificaciones) < 3.5;
+            cout << "Rechazado. \n";
+        }
+    } 
 }
 
 void Director::crearCriterio(Acta acta)
@@ -44,7 +71,7 @@ void Director::crearCriterio(Acta acta)
 
 }
 
-// void Director::mostrarCriterio()
-// {
-//     getIdentificador(), getEnunciado(), getComentarios(), getPonderacion(), getCalificaciones();
-// }
+void Director::mostrarCriterio(Acta)
+{
+    getIdentificador(), getEnunciado(), getComentarios(), getPonderacion(), getCalificaciones();
+}
