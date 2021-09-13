@@ -108,14 +108,14 @@ void Universidad::verificarJurados(Acta nuevaActa)
         {
             cout << "Ingrese el documento del jurado 1:\n";
             cin >> docJurado1;
-            if(this->directores.find(docJurado1) != this->directores.end())
+            if(this->jurados.find(docJurado1) != this->jurados.end())
             {
                 docJurado1Existe = true;
                 do
                 {
                     cout << "Ingrese el documento del jurado 2:\n";
                     cin >> docJurado2;
-                    if(this->directores.find(docJurado2) != this->directores.end())
+                    if(this->jurados.find(docJurado2) != this->jurados.end())
                     {
                         docJurado2Existe = true;
                         nuevaActa.getJurados()[0] = jurados[docJurado1].getNombre();
@@ -295,7 +295,7 @@ void Universidad::menuJurado(Jurado jurado)
 void Universidad::ingresarComoJurado()
 {
     int numDocumento;
-    cout << "directores en lista:\n";
+    cout << "Jurados en lista:\n";
 
     for(map<int, Jurado>::iterator pJurado = jurados.begin(); pJurado != jurados.end();
      pJurado++)
