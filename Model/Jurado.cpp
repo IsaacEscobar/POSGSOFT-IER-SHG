@@ -3,11 +3,13 @@
 Jurado::Jurado()
 {
 }
-// void Jurado::calificarActa(Acta acta)
-// {
-//     return calificarActa;
-// }
-// void Jurado::exportarActa(Acta acta)
-// {
-//     return exportarActa;
-// }
+
+void Jurado::calificarActa(Acta acta)
+{
+    
+}
+
+void Jurado::exportarActa(Acta acta)
+{
+    
+}

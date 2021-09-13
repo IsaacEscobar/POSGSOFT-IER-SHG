@@ -20,6 +20,7 @@ class Jurado: public Persona
 	public:
 		Jurado();
 		void calificarActa(Acta acta);
+		void exportarActa(Acta acta);
 		void exportarActa();
 };
 

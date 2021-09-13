@@ -71,7 +71,7 @@ void Director::crearCriterio(Acta acta)
 
 }
 
-// void Director::mostrarCriterio(Acta)
-// {
-//     getIdentificador(), getEnunciado(), getComentarios(), getPonderacion(), getCalificaciones();
-// }
+void Director::mostrarCriterio(Acta acta)
+{
+    //getIdentificador(), getEnunciado(), getComentarios(), getPonderacion(), getCalificaciones();
+}

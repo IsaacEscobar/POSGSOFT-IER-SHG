@@ -13,7 +13,7 @@ void Asistente::mostrarNumActasPoseidas()
     }
 }
 
-Acta Asistente::generarActa()
+Acta Asistente::generarActa(int numeroTrabajo)
 {
     string nombreTrabajo, autor, tipoTrabajo, fecha;
     Acta nuevaActa;
@@ -21,17 +21,19 @@ Acta Asistente::generarActa()
     cin.ignore (std::numeric_limits<std::streamsize>::max(), '\n');
     getline(cin, nombreTrabajo);
     cout << "Ingrese quien es el autor:\n";
-    cin.ignore (std::numeric_limits<std::streamsize>::max(), '\n');
+    //cin.ignore (std::numeric_limits<std::streamsize>::max(), '\n');
     getline(cin, autor);
     cout << "Ingrese el tipo de trabajo:\n";
-    cin.ignore (std::numeric_limits<std::streamsize>::max(), '\n');
+    //cin.ignore (std::numeric_limits<std::streamsize>::max(), '\n');
     getline(cin, tipoTrabajo);
     cout << "Ingrese la fecha:\n";
-    cin.ignore (std::numeric_limits<std::streamsize>::max(), '\n');
+    //cin.ignore (std::numeric_limits<std::streamsize>::max(), '\n');
     getline(cin, fecha);
     nuevaActa.setNombreTrabajo(nombreTrabajo);
     nuevaActa.setAutor(autor);
     nuevaActa.setTipoTrabajo(tipoTrabajo);
     nuevaActa.setFecha(fecha);
+    nuevaActa.setNumeroTrabajo(numeroTrabajo);
+    this->actas.insert(actas.end(), numeroTrabajo);
     return nuevaActa;
 }

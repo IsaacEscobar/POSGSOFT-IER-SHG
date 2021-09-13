@@ -24,6 +24,7 @@ void Universidad::crearAsistente()
         cin >> numDocumento;
         if (this->asistentes.find(numDocumento) != this->asistentes.end())
 	    {
+            existeDocumento = true;
             cout << "Documento existente, indique otro.\n";
 	    }
 	    else
@@ -53,6 +54,7 @@ void Universidad::crearJurado()
         cin >> numDocumento;
         if (this->jurados.find(numDocumento) != this->jurados.end())
 	    {
+            existeDocumento = true;
             cout << "Documento existente, indique otro.\n";
 	    }
 	    else
@@ -82,6 +84,7 @@ void Universidad::crearDirector()
         cin >> numDocumento;
         if (this->directores.find(numDocumento) != this->directores.end())
 	    {
+            existeDocumento = true;
             cout << "Documento existente, indique otro.\n";
 	    }
 	    else
@@ -112,7 +115,6 @@ void Universidad::menuAsistente(Asistente asistente)
         switch(opcionusuario)
         {
             case 1:
-                nuevaActa = asistente.generarActa();
                 do
                 {
                     cout << "Digite el numero del trabajo:\n";
@@ -120,11 +122,13 @@ void Universidad::menuAsistente(Asistente asistente)
                     nuevaActa.setNumeroTrabajo(numeroTrabajo);
                     if(this->actas.find(numeroTrabajo) != this->actas.end())
                     {
-                        cout << "Numero de acta existente, use otro.";
+                        existeActaPorNum = true;
+                        cout << "Numero de acta existente, use otro.\n";
                     }
                     else
                     {
                         existeActaPorNum = false;
+                        nuevaActa = asistente.generarActa(numeroTrabajo);
                         actas[numeroTrabajo] = nuevaActa;
                     }
                 } while(existeActaPorNum);
@@ -180,7 +184,7 @@ void Universidad::menuJurado(Jurado jurado)
                 jurado.calificarActa(actas[0]);
                 break;
             case 2:
-                jurado.exportarActa();
+                jurado.exportarActa(actas[0]);
                 
                 break;
             case 0:
@@ -236,7 +240,7 @@ void Universidad::menuDirector(Director director)
                 director.crearCriterio(actas[0]);
                 break;
             case 3:
-                director.mostrarCriterio();
+                director.mostrarCriterio(actas[0]);
             case 0:
                 break;
             default: cout << "Opcion no contemplada, intentelo de nuevo\n";
