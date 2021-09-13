@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <stdlib.h>
-#include "Universidad.h"
+#include "../Model/Universidad.h"
 
 using std::cin;
 using std::cout;
