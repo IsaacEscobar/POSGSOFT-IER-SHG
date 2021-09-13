@@ -15,5 +15,23 @@ void Asistente::mostrarNumActasPoseidas()
 
 Acta Asistente::generarActa()
 {
-
+    string nombreTrabajo, autor, tipoTrabajo, fecha;
+    int numeroTrabajo;
+    Acta nuevaActa;
+    cout << "Ingrese el nombre del trabajo:\n";
+    getline(cin, nombreTrabajo);
+    cout << "Ingrese quien es el autor:\n";
+    getline(cin, autor);
+    cout << "Digite el numero del trabajo:\n";
+    cin >> numeroTrabajo;
+    cout << "Ingrese el tipo de trabajo:\n";
+    getline(cin, tipoTrabajo);
+    cout << "Ingrese la fecha:\n";
+    getline(cin, fecha);
+    nuevaActa.setNombreTrabajo(nombreTrabajo);
+    nuevaActa.setAutor(autor);
+    nuevaActa.setNumeroTrabajo(numeroTrabajo);
+    nuevaActa.setTipoTrabajo(tipoTrabajo);
+    nuevaActa.setFecha(fecha);
+    return nuevaActa;
 }

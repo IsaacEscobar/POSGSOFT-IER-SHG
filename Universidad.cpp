@@ -100,9 +100,9 @@ void Universidad::menuAsistente(Asistente asistente)
     int opcionusuario;
     do
     {
-        cout << "1. Crear un acta.";
-        cout << "2. Ver historicos de actas.";
-        cout << "0. Volver.";
+        cout << "1. Crear un acta.\n";
+        cout << "2. Ver historicos de actas.\n";
+        cout << "0. Volver.\n";
         cout << "Digite el numero: ";
         cin >> opcionusuario;
         switch(opcionusuario)
