@@ -19,6 +19,11 @@
   "files.associations": {
     "iostream": "cpp",
     "iterator": "cpp",
-    "*.tcc": "cpp"
+    "*.tcc": "cpp",
+    "compare": "cpp",
+    "memory_resource": "cpp",
+    "limits": "cpp",
+    "memory": "cpp",
+    "type_traits": "cpp"
   }
 }

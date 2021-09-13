@@ -21,30 +21,11 @@ void Director::modificarCriterio(Acta acta)
         cin >> enunciado;
         cout << "Adicionar comentarios al proyecto:";
         cin >> comentarios;
-        cout << "Ingrese ponderacion:";
-        if (listaCriterios.find(ponderacion) != acta.getCriterios().end())
-        {
-            listaCriterios[ponderacion].setPonderacion(ponderacion) *0.10
-            cout << " El valor de la ponderacion de este criterio es 10%. \n";
-        }
-        else 
-        {
-            listaCriterios[ponderacion].setPonderacion(ponderacion) != 0.10;
-            cout << "ingrese porcentaje de ponderacion para evaluar el criterio. \n";
-        }
+        cout << "Ingrese la ponderacion del proyecto:";
         cin >> ponderacion;
-        cout << "Ingrese calificaciones";.setPonderacion(ponderacion) 
-        if (listaCriterios.find(calificaciones) != acta.getCriterios().end())
-        {
-            listaCriterios[calificaciones].setCalificaciones(calificaciones) > 3.5;
-            cout << "Aprobado.\n";
-        }
-        else
-        {
-            listaCriterios[calificaciones].setCalificaciones(calificaciones) < 3.5;
-            cout << "Rechazado. \n";
-        }
+        cout << "Ingrese las calificaciones:";
         cin >> calificaciones;
+        
     } while(existeIdentificador);
 }
 
@@ -85,17 +66,10 @@ void Director::crearCriterio(Acta acta)
 
 void Director::mostrarCriterio(Acta acta)
 {
-    cout << "Nombre: " << setNombreTrabajo(nombreTrabajo) << "\n";
-    cout << "Autor: " << setAutor(autor) << "\n";
-    cout << "Numero: " << setNumeroTrabajo(numeroTrabajo) << "\n";
-    cout << "Tipo: " << setTipoTrabajo(tipoTrabajo) << "\n";
-    cout << "Fecha: " << setFecha(fecha) << "\n";
-    cout << "Obvservaciones: " << setObvAdicionales(obvAdicionales) << "\n";
-    cout << "Condiciones: " << setCondiciones(condiciones) << "\n";
-    cout << "Identificador: " << setIdentificador(identificador) << "\n";
-    cout << "Enunciado: " << setEnunciado(enunciado) << "\n";
-    cout << "Comentarios: " << setComentarios(comentarios) << "\n";
-    cout << "Ponderacion: " << setPonderacion(ponderacion) << "\n";
-    cout << "Calificaciones: " << setCalificaciones(calificaciones << "\n";
+    map<int, Criterio>:: iterator i;
+    map<int, Criterio> listaCriterios;
+    for (i = listaCriterios.begin(); != listaCriterios.end(); ++i)
+        cout << i->first << ": " << i->second << endl;
+    return 0;
 }
     
