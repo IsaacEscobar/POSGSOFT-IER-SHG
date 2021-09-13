@@ -6,6 +6,7 @@
 #include <map>
 #include <iterator>
 #include "Persona.h"
+#include <fstream>
 
 using std::cin;
 using std::cout;

@@ -66,7 +66,7 @@ void Director::mostrarCriterio(Acta acta)
 {
     map<int, Criterio>:: iterator i;
     map<int, Criterio> listaCriterios;
-    for (i = listaCriterios.begin(); i != listaCriterios.end(); ++ i)
-        cout << i->first << ": " << i->second.getIdentificador << endl;
+    for (i = listaCriterios.begin(); i != listaCriterios.end(); i++)
+        cout << i->first << ": " << i->second.getIdentificador() << endl;
 }
     
