@@ -144,27 +144,38 @@ void Universidad::verificarDirectores(Acta nuevaActa)
     bool docDirector1Existe = false, docDirector2Existe = false;
     do
         {
-            cout << "Ingrese el documento del director 1:\n";
+            cout << "Ingrese el documento del director:\n";
             cin >> docDirector1;
             if(this->directores.find(docDirector1) != this->directores.end())
             {
                 docDirector1Existe = true;
                 do
                 {
-                    cout << "Ingrese el documento del director 2:\n";
+                    cout << "Ingrese el documento del codirector, o 0 si no desea codirector:\n";
                     cin >> docDirector2;
-                    if(this->directores.find(docDirector2) != this->directores.end())
+                    if(docDirector2 != 0)
+                    {
+                        if(this->directores.find(docDirector2) != this->directores.end())
+                        {
+                            docDirector2Existe = true;
+                            nuevaActa.getDirectores()[0] = directores[docDirector1].getNombre();
+                            nuevaActa.getDirectores()[1] = to_string(directores[docDirector1].getDocumento());
+                            nuevaActa.getDirectores()[2] = directores[docDirector2].getNombre();
+                            nuevaActa.getDirectores()[3] = to_string(directores[docDirector2].getDocumento());
+                        }
+                        else
+                        {
+                            docDirector1Existe = false;
+                            cout << "El director no se encuentra registrado.";
+                        }
+                    }
+                    else
                     {
                         docDirector2Existe = true;
                         nuevaActa.getDirectores()[0] = directores[docDirector1].getNombre();
                         nuevaActa.getDirectores()[1] = to_string(directores[docDirector1].getDocumento());
-                        nuevaActa.getDirectores()[2] = directores[docDirector2].getNombre();
-                        nuevaActa.getDirectores()[3] = to_string(directores[docDirector2].getDocumento());
-                    }
-                    else
-                    {
-                        docDirector1Existe = false;
-                        cout << "El director no se encuentra registrado.";
+                        nuevaActa.getDirectores()[2] = "";
+                        nuevaActa.getDirectores()[3] = "";
                     }
                 } while(!docDirector2Existe);
             }
