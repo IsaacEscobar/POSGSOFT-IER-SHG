@@ -1,5 +1,5 @@
 #include "Director.h"
-#include "Criterio.h"
+
 #include "Acta.h"
 
 Director::Director()
@@ -15,18 +15,16 @@ void Director::modificarCriterio(Acta acta)
     map<int, Criterio> listaCriterios = acta.getCriterios();
     do
     {
-        cout <<"Ingrese numero de identificador: ";
-        cin >> identificador;
-        cout << "Ingrese enunciado del proyecto:";
-        cin >> enunciado;
-        cout << "Adicionar comentarios al proyecto:";
-        cin >> comentarios;
-        cout << "Ingrese la ponderacion del proyecto:";
+        cout <<"Identificador: ";
+        cout << "Enunciado del proyecto:";
+        cout << "comentarios:";
+        cout << "Ingrese la ponderacion del acta:";
         cin >> ponderacion;
-        cout << "Ingrese las calificaciones:";
-        cin >> calificaciones;
+        cout << "calificacion:";
         
-    } while(existeIdentificador);
+
+    } 
+    while(existeIdentificador);
 }
 
 void Director::crearCriterio(Acta acta)
@@ -68,8 +66,7 @@ void Director::mostrarCriterio(Acta acta)
 {
     map<int, Criterio>:: iterator i;
     map<int, Criterio> listaCriterios;
-    for (i = listaCriterios.begin(); != listaCriterios.end(); ++i)
-        cout << i->first << ": " << i->second << endl;
-    return 0;
+    for (i = listaCriterios.begin(); i != listaCriterios.end(); ++ i)
+        cout << i->first << ": " << i->second.getIdentificador << endl;
 }
     

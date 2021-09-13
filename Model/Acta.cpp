@@ -21,34 +21,19 @@ void Acta::mostrarActa()
 
 void Acta::mostrarJurados()
 {
-    cout << "Nombre: " << setNombre(nombre) << "\n";
-    cout << "Documento: " << setDocumento(documento) << "\n";
-    cout << "Nombre del trabajo: " << setNombreTrabajo(nombreTrabajo) << "\n";
-    cout << "Autor: " << setAutor(autor) << "\n";
-    cout << "Numero: " << setNumeroTrabajo(numeroTrabajo) << "\n";
-    cout << "Tipo: " << setTipoTrabajo(tipoTrabajo) << "\n";
-    cout << "Fecha: " << setFecha(fecha) << "\n";
-    cout << "Obvservaciones: " << setObvAdicionales(obvAdicionales) << "\n";
-    cout << "Identificador: " << setIdentificador(identificador) << "\n";
-    cout << "Calificaciones: " << setCalificaciones(calificaciones << "\n";
+   map<int, Acta>:: iterator i ;
+   map<int, Acta> listaJurados;
+   for(i = listaJurados.begin(); i != listaJurados.end(); i++)
+        cout << i->first << " " << i->second.getJurados() << endl;
+
 }
 
 void Acta::mostrarDirectores()
 {
-    cout << "Nombre: " << setNombre(nombre) << "\n";
-    cout << "Documento: " << setDocumento(documento) << "\n";
-    cout << "Nombre del trabajo: " << setNombreTrabajo(nombreTrabajo) << "\n";
-    cout << "Autor: " << setAutor(autor) << "\n";
-    cout << "Numero: " << setNumeroTrabajo(numeroTrabajo) << "\n";
-    cout << "Tipo: " << setTipoTrabajo(tipoTrabajo) << "\n";
-    cout << "Fecha: " << setFecha(fecha) << "\n";
-    cout << "Obvservaciones: " << setObvAdicionales(obvAdicionales) << "\n";
-    cout << "Condiciones: " << setCondiciones(condiciones) << "\n";
-    cout << "Identificador: " << setIdentificador(identificador) << "\n";
-    cout << "Enunciado: " << setEnunciado(enunciado) << "\n";
-    cout << "Comentarios: " << setComentarios(comentarios) << "\n";
-    cout << "Ponderacion: " << setPonderacion(ponderacion) << "\n";
-    cout << "Calificaciones: " << setCalificaciones(calificaciones << "\n";
+    map<int, Acta>:: iterator i ;
+    map<int, Acta> listaDirectores;
+    for(i = listaDirectores.begin(); i != listaDirectores.end(); i++)
+        cout << i->first << " " << i->second.getDirectores() << endl;
 }
 
 string Acta::getNombreTrabajo() 
