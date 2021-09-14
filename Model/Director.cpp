@@ -57,29 +57,29 @@ void Director::crearCriterio(Acta acta)
     map<int, Criterio> listaCriterios = acta.getCriterios();
     do
     {
-        cout << "Ingrese numero de identificador: ";
+        cout << "Ingrese numero de identificador: " "\n";
         cin >> identificador;
-        if (listaCriterios.find(identificador) != acta.getCriterios().end())
+        if (listaCriterios.find(identificador) == acta.getCriterios().end())
 	    {
-	    	existeIdentificador = true;
             cout << "Identificador ya existente, indique otro.\n";
 	    }
 	    else
 	    {
-		    existeIdentificador = false;
+		    cout << "Escriba comentarios del criterio nuevo: " "\n";
+            cin >> comentarios;
+            cout << "Comentario actualizado: " "\n";
 	    }
-    } while(existeIdentificador);
-    Criterio nuevoCriterio;
-    nuevoCriterio.setIdentificador(identificador);
-    nuevoCriterio.setEnunciado(enunciado);
-    nuevoCriterio.setComentarios(comentarios);
-    nuevoCriterio.setPonderacion(ponderacion);
-    nuevoCriterio.setCalificaciones(calificaciones);
-    listaCriterios[identificador] = nuevoCriterio;
-    cout << nuevoCriterio.getIdentificador() << " con identificador No." << nuevoCriterio.getEnunciado() 
-    << "\nEnunciados :" << nuevoCriterio.getComentarios() << "\nComentarios :" << nuevoCriterio.getPonderacion()
-    << "\nPonderacion: " << nuevoCriterio.getCalificaciones() << "\nCalificaciones";
-    cout << "\nNuevo criterio creado.\n";
+        break;
+    }
+    while(existeIdentificador);
+    Criterio listaCriterio;
+    listaCriterio.setIdentificador(identificador);
+    listaCriterio.setEnunciado(enunciado);
+    listaCriterio.setComentarios(comentarios);
+    listaCriterio.setPonderacion(ponderacion);
+    listaCriterio.setCalificaciones(calificaciones);
+    listaCriterios[identificador] = listaCriterio;
+    system("PAUSE");
 
 }
 
