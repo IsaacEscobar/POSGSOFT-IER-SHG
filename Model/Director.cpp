@@ -64,12 +64,12 @@ void Director::mostrarActaSeleccionada(Acta acta)
 {
 
     cout << "Nombre Trabajo: " << acta.getNombreTrabajo();
-    cout << "Jurado 1: " << acta.getJurados()[0] << "-" << acta.getJurados[0]; //posicion 0 nombre , 1 documento
-    cout << "Jurado 1: " << acta.getJurados()[0] << "-" << acta.getJurados[1];
-    cout << "Jurado 2: " << acta.getJurados()[1] << "-" << acta.getJurados[0];
-    cout << "Jurado 2: " << acta.getJurados()[1] << "-" << acta.getJurados[1];
-    cout << "Director: " << acta.getDirectores()[0] << "-" << acta.getDirectores[1]; // Director 0 nombre, 1 documento
-    cout << "Codirector: " << acta.getDirectores()[2] << "-" << acta.getDirectores[3];// director 2 nombreCodirector, 3 documentoCodirector
+    cout << "Jurado 1: " << acta.getJurados()[0] << "-" << acta.getJurados()[0]; //posicion 0 nombre , 1 documento
+    cout << "Jurado 1: " << acta.getJurados()[0] << "-" << acta.getJurados()[1];
+    cout << "Jurado 2: " << acta.getJurados()[1] << "-" << acta.getJurados()[0];
+    cout << "Jurado 2: " << acta.getJurados()[1] << "-" << acta.getJurados()[1];
+    cout << "Director: " << acta.getDirectores()[0] << "-" << acta.getDirectores()[1]; // Director 0 nombre, 1 documento
+    cout << "Codirector: " << acta.getDirectores()[2] << "-" << acta.getDirectores()[3];// director 2 nombreCodirector, 3 documentoCodirector
     cout << "Autor: " << acta.getAutor();
     cout << "Tipo de trabajo: " << acta.getTipoTrabajo();
     cout << "Numero de trabajo: " << acta.getNumeroTrabajo();
