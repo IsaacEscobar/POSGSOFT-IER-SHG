@@ -5,7 +5,15 @@
 
 Acta::Acta()
 {
-
+    criterios[1] = Criterio(1, "Buena ortografia", 0.2, "", 0.0);
+    criterios[2] = Criterio(2, "Cumple los requisitos exigidos", 0.2, "", 0.0);
+    criterios[3] = Criterio(3, "Demuestra una buena sustentacion", 0.1, "", 0.0);
+    criterios[4] = Criterio(4, "Elabora de manera adecuada el tema asignado", 0.05, "", 0.0);
+    criterios[5] = Criterio(5, "Manejo de fuentes de manera correcta", 0.2, "", 0.0);
+    criterios[6] = Criterio(6, "Utiliza de manera correcta los recursos visuales y textuales", 
+                                  0.1, "", 0.0);
+    criterios[7] = Criterio(7, "Presenta un esquema completo", 0.1, "", 0.0);
+    criterios[8] = Criterio(8, "Entrega en el plazo asignado", 0.05, "", 0.0);
 }
 
 void Acta::mostrarActa()
