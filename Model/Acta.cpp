@@ -2,15 +2,14 @@
 
 Acta::Acta()
 {
-    criterios[1] = Criterio(1, "Buena ortografia", 0.2, "", 0.0);
-    criterios[2] = Criterio(2, "Cumple los requisitos exigidos", 0.2, "", 0.0);
-    criterios[3] = Criterio(3, "Demuestra una buena sustentacion", 0.1, "", 0.0);
-    criterios[4] = Criterio(4, "Elabora de manera adecuada el tema asignado", 0.05, "", 0.0);
-    criterios[5] = Criterio(5, "Manejo de fuentes de manera correcta", 0.2, "", 0.0);
-    criterios[6] = Criterio(6, "Utiliza de manera correcta los recursos visuales y textuales", 
-                                  0.1, "", 0.0);
-    criterios[7] = Criterio(7, "Presenta un esquema completo", 0.1, "", 0.0);
-    criterios[8] = Criterio(8, "Entrega en el plazo asignado", 0.05, "", 0.0);
+    criterios[1] = Criterio(1, "Buena ortografia", 0.2, "");
+    criterios[2] = Criterio(2, "Cumple los requisitos exigidos", 0.2, "");
+    criterios[3] = Criterio(3, "Demuestra una buena sustentacion", 0.1, "");
+    criterios[4] = Criterio(4, "Elabora de manera adecuada el tema asignado", 0.05, "");
+    criterios[5] = Criterio(5, "Manejo de fuentes de manera correcta", 0.2, "");
+    criterios[6] = Criterio(6, "Utiliza de manera correcta los recursos visuales y textuales", 0.1, "");
+    criterios[7] = Criterio(7, "Presenta un esquema completo", 0.1, "");
+    criterios[8] = Criterio(8, "Entrega en el plazo asignado", 0.05, "");
 }
 
 void Acta::mostrarActa()
@@ -83,6 +82,43 @@ void Acta::crearCriterio()
             criterios[identificador].setComentarios("");
         }
     } while(existeIdentificador);
+}
+
+void Acta::calificar()
+{
+    int nota;
+    string comentario, observacion, condicion;
+    float notaFinal = 0.0;
+    mostrarActa();
+    for(map<int, Criterio>::iterator pCriterio = criterios.begin(); pCriterio != criterios.end(); pCriterio++)
+    {
+        Criterio actual = pCriterio->second;
+        cout << "Nota criterio No." << actual.getIdentificador() << " - " 
+        << actual.getPonderacion() * 100 << "%\n";
+        cout << actual.getEnunciado() << "\n";
+        cout << "Nota: ";  
+        cin >> nota;
+        cout << "Comentarios: ";
+        cin.ignore (std::numeric_limits<std::streamsize>::max(), '\n');
+        getline(cin, comentario);
+        notaFinal += nota * actual.getPonderacion();
+        pCriterio->second.setCalificaciones(nota);
+        pCriterio->second.setComentarios(comentario);
+    }
+    cout << "Ingrese las observaciones adicionales:\n";
+    getline(cin, observacion);
+    cout << "Ingrese las condiciones para aprobacion:\n";
+    getline(cin, condicion);
+    setObvAdicionales(observacion);
+    setCondiciones(condicion);
+    if(notaFinal > 3.5)
+    {
+        cout << "Nota final: " << notaFinal << " - Aprobado\n";
+    }
+    else
+    {
+        cout << "Nota final: " << notaFinal << " - Reprobado\n";
+    }
 }
 
 string Acta::getNombreTrabajo() 

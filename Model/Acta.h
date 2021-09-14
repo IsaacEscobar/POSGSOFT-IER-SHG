@@ -54,6 +54,7 @@ class Acta
         void mostrarActa();
 		void modificarCriterio(int posicion);
         void crearCriterio();
+        void calificar();
 };
 
 #endif // ACTA_H

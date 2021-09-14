@@ -7,14 +7,12 @@ Criterio::Criterio()
 
 }
 
-Criterio::Criterio(int identificador, string enunciado, float ponderacion, 
-					string comentarios, float calificaciones)
+Criterio::Criterio(int identificador, string enunciado, float ponderacion, string comentarios)
 {
 	this->identificador = identificador;
 	this->enunciado = enunciado;
 	this->ponderacion = ponderacion;
 	this->comentarios = comentarios;
-	this->calificaciones = calificaciones;	
 }
 
 void Criterio::mostrarCriterio()
