@@ -23,6 +23,7 @@ protected:
 
 public:
     Persona();
+	Persona(string nombre, int documento);
     void mostrarInformacion(string nombre, int documento);
 
     // Gets and sets

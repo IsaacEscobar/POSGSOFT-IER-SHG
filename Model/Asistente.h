@@ -18,7 +18,8 @@ class Asistente: public Persona
         vector<int> actas;
     public:
         Asistente();
-        Acta generarActa(int numeroTrabajo);
+        Asistente(string nombre, int documento);
+        void generarActa(int numeroTrabajo, Acta* acta);
         void mostrarNumActasPoseidas();
 };
 

@@ -2,7 +2,11 @@
 
 Universidad::Universidad()
 {
-
+    this->asistentes[10] = Asistente("I", 10);
+    this->directores[10] = Director("M", 10);
+    this->directores[11] = Director("J", 11);
+    this->jurados[10] = Jurado("K", 10);
+    this->jurados[11] = Jurado("L", 11);
 }
 
 // void Universidad::mostrarReportes()
@@ -100,7 +104,7 @@ void Universidad::crearDirector()
     " ha sido agregado.\n";
 }
 
-void Universidad::verificarJurados(Acta nuevaActa)
+void Universidad::verificarJurados(Acta* nuevaActa)
 {
     int docJurado1, docJurado2;
     bool docJurado1Existe = false, docJurado2Existe = false;
@@ -118,10 +122,10 @@ void Universidad::verificarJurados(Acta nuevaActa)
                     if(this->jurados.find(docJurado2) != this->jurados.end())
                     {
                         docJurado2Existe = true;
-                        nuevaActa.getJurados()[0] = jurados[docJurado1].getNombre();
-                        nuevaActa.getJurados()[1] = to_string(jurados[docJurado1].getDocumento());
-                        nuevaActa.getJurados()[2] = jurados[docJurado2].getNombre();
-                        nuevaActa.getJurados()[3] = to_string(jurados[docJurado2].getDocumento());
+                        nuevaActa->getJurados()[0] = jurados[docJurado1].getNombre();
+                        nuevaActa->getJurados()[1] = to_string(jurados[docJurado1].getDocumento());
+                        nuevaActa->getJurados()[2] = jurados[docJurado2].getNombre();
+                        nuevaActa->getJurados()[3] = to_string(jurados[docJurado2].getDocumento());
                     }
                     else
                     {
@@ -138,7 +142,7 @@ void Universidad::verificarJurados(Acta nuevaActa)
         } while(!docJurado1Existe); 
 }
 
-void Universidad::verificarDirectores(Acta nuevaActa)
+void Universidad::verificarDirectores(Acta* nuevaActa)
 {
     int docDirector1, docDirector2;
     bool docDirector1Existe = false, docDirector2Existe = false;
@@ -158,10 +162,10 @@ void Universidad::verificarDirectores(Acta nuevaActa)
                         if(this->directores.find(docDirector2) != this->directores.end())
                         {
                             docDirector2Existe = true;
-                            nuevaActa.getDirectores()[0] = directores[docDirector1].getNombre();
-                            nuevaActa.getDirectores()[1] = to_string(directores[docDirector1].getDocumento());
-                            nuevaActa.getDirectores()[2] = directores[docDirector2].getNombre();
-                            nuevaActa.getDirectores()[3] = to_string(directores[docDirector2].getDocumento());
+                            nuevaActa->getDirectores()[0] = directores[docDirector1].getNombre();
+                            nuevaActa->getDirectores()[1] = to_string(directores[docDirector1].getDocumento());
+                            nuevaActa->getDirectores()[2] = directores[docDirector2].getNombre();
+                            nuevaActa->getDirectores()[3] = to_string(directores[docDirector2].getDocumento());
                         }
                         else
                         {
@@ -172,10 +176,10 @@ void Universidad::verificarDirectores(Acta nuevaActa)
                     else
                     {
                         docDirector2Existe = true;
-                        nuevaActa.getDirectores()[0] = directores[docDirector1].getNombre();
-                        nuevaActa.getDirectores()[1] = to_string(directores[docDirector1].getDocumento());
-                        nuevaActa.getDirectores()[2] = "";
-                        nuevaActa.getDirectores()[3] = "";
+                        nuevaActa->getDirectores()[0] = directores[docDirector1].getNombre();
+                        nuevaActa->getDirectores()[1] = to_string(directores[docDirector1].getDocumento());
+                        nuevaActa->getDirectores()[2] = "";
+                        nuevaActa->getDirectores()[3] = "";
                     }
                 } while(!docDirector2Existe);
             }
@@ -187,7 +191,7 @@ void Universidad::verificarDirectores(Acta nuevaActa)
         } while(!docDirector1Existe); 
 }
 
-void Universidad::generarActa(Asistente asistente)
+void Universidad::generarActa(Asistente* asistente)
 {
     int numeroTrabajo;
     Acta nuevaActa;
@@ -205,27 +209,28 @@ void Universidad::generarActa(Asistente asistente)
         else
         {
             existeActaPorNum = false;
-            nuevaActa = asistente.generarActa(numeroTrabajo);
+            asistente->generarActa(numeroTrabajo, &nuevaActa);
             for(map<int, Jurado>::iterator pJurado = jurados.begin(); pJurado != jurados.end();
              pJurado++)
             {
                 Jurado juradoActual = pJurado->second;
                 cout << juradoActual.getNombre() << " - " << juradoActual.getDocumento() << "\n";
             }
-            verificarJurados(nuevaActa);
+            verificarJurados(&nuevaActa);
             for(map<int, Director>::iterator pDirector = directores.begin(); pDirector != directores.end();
              pDirector++)
             {
                 Director directorActual = pDirector->second;
                 cout << directorActual.getNombre() << " - " << directorActual.getDocumento() << "\n";
             }
-            verificarDirectores(nuevaActa);
+            verificarDirectores(&nuevaActa);
+            cout << nuevaActa.getDirectores()[0] << " - " << nuevaActa.getDirectores()[1] << "\n";
         }
     } while(existeActaPorNum);
     actas[numeroTrabajo] = nuevaActa;
 }
 
-void Universidad::menuAsistente(Asistente asistente)
+void Universidad::menuAsistente(Asistente* asistente)
 {
     int opcionUsuario;
     do
@@ -241,7 +246,7 @@ void Universidad::menuAsistente(Asistente asistente)
                 generarActa(asistente);
                 break;
             case 2:
-                asistente.mostrarNumActasPoseidas();
+                asistente->mostrarNumActasPoseidas();
                 
                 break;
             case 0:
@@ -270,12 +275,12 @@ void Universidad::ingresarComoAsistente()
         Asistente asistenteActual = pAsistente->second;
         if(asistenteActual.getDocumento() == numDocumento)
         {
-            menuAsistente(asistenteActual);
+            menuAsistente(&asistenteActual);
         }
     }
 }
 
-void Universidad::menuJurado(Jurado jurado)
+void Universidad::menuJurado(Jurado* jurado)
 {
     int opcionUsuario;
     do
@@ -288,10 +293,10 @@ void Universidad::menuJurado(Jurado jurado)
         switch(opcionUsuario)
         {
             case 1:
-                jurado.calificarActa(actas[0]);
+                jurado->calificarActa(actas[0]);
                 break;
             case 2:
-                jurado.exportarActa(actas[0]);
+                jurado->exportarActa(actas[0]);
                 
                 break;
             case 0:
@@ -322,12 +327,12 @@ void Universidad::ingresarComoJurado()
         Jurado juradoActual = pJurado->second;
         if(juradoActual.getDocumento() == numDocumento)
         {
-            menuJurado(juradoActual);
+            menuJurado(&juradoActual);
         }
     }
 }
 
-void Universidad::menuDirector(Director director)
+void Universidad::menuDirector(Director* director)
 {
     int opcionUsuario;
     do
@@ -341,13 +346,13 @@ void Universidad::menuDirector(Director director)
         switch(opcionUsuario)
         {
             case 1:
-                director.modificarCriterio(actas[0]);
+                director->modificarCriterio(actas[0]);
                 break;
             case 2:
-                director.crearCriterio(actas[0]);
+                director->crearCriterio(actas[0]);
                 break;
             case 3:
-                director.mostrarActaSeleccionada(actas[0]);
+                director->mostrarActaSeleccionada(actas[0]);
 
             case 0:
                 break;
@@ -376,7 +381,7 @@ void Universidad::ingresarComoDirector()
         Director directorActual = pDirector->second;
         if(directorActual.getDocumento() == numDocumento)
         {
-            menuDirector(directorActual);
+            menuDirector(&directorActual);
         }
     }
 }

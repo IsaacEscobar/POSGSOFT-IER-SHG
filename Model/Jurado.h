@@ -21,6 +21,7 @@ class Jurado: public Persona
 {
 	public:
 		Jurado();
+		Jurado(string nombre, int documento);
 		void calificarActa(Acta acta);
 		void exportarActa(Acta acta);
 

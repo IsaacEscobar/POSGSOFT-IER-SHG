@@ -3,10 +3,8 @@
 // constructor por defecto
 Persona::Persona()
 {
-	this->nombre = nombre;
-	this->documento = documento;	
+		
 }
-
 
 void Persona::mostrarInformacion(string nombre, int documento)
 {
