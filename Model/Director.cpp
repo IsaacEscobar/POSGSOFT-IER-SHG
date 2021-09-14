@@ -15,7 +15,7 @@ void Director::modificarCriterio(Acta acta)
 {
     int identificador;
     string enunciado, comentarios;
-    float ponderacion = 10.0, calificaciones = 0.0;
+    float ponderacion = 10.0, calificaciones = 0;
     bool existeIdentificador = true;
     map<int, Criterio> listaCriterios = acta.getCriterios();
     do
@@ -23,18 +23,19 @@ void Director::modificarCriterio(Acta acta)
         cout <<"Identificador: " << identificador << "\n";
         cout << "Enunciado del proyecto: " << enunciado << "\n";
         cout << "comentarios: " << comentarios << "\n";
-        cin >> ponderacion;
         cout << "Ponderacion del acta: " << ponderacion << "\n" ;
-        if (ponderacion >= 0.10)
+        cout << "calificacion:" << calificaciones << "\n";
+        
+
+        if( ponderacion >= 0.10)
         {
             cout << "se ha cambiado el valor de la ponderacion";
         }
         else
         {
-            cout << "no realizó ningun cambio en la ponderacion";
+            cout <<"no realizó ningun cambio en la ponderacion";
         }
-        cout << "calificacion:" << calificaciones << "\n";
-
+    
     } 
     while(existeIdentificador);
     Criterio listaCriterio;
