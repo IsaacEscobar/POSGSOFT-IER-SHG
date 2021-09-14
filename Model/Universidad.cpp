@@ -224,10 +224,30 @@ void Universidad::generarActa(Asistente* asistente)
                 cout << directorActual.getNombre() << " - " << directorActual.getDocumento() << "\n";
             }
             verificarDirectores(&nuevaActa);
-            cout << nuevaActa.getDirectores()[0] << " - " << nuevaActa.getDirectores()[1] << "\n";
         }
     } while(existeActaPorNum);
     actas[numeroTrabajo] = nuevaActa;
+}
+
+void Universidad::mostrarInfoActa()
+{
+    int opcionUsuario;
+    bool existeActaPorNum = false;
+    cout << "Digite el numero del acta a revisar:\n";
+    cin >> opcionUsuario;
+    do
+    {
+        if(this->actas.find(opcionUsuario) != this->actas.end())
+        {
+            existeActaPorNum = true;
+            actas[opcionUsuario].mostrarActa();
+        }
+        else
+        {
+            existeActaPorNum = false;
+            cout << "Numero de acta inexistente, use otro.\n";
+        }
+    } while(!existeActaPorNum);
 }
 
 void Universidad::menuAsistente(Asistente* asistente)
@@ -247,7 +267,7 @@ void Universidad::menuAsistente(Asistente* asistente)
                 break;
             case 2:
                 asistente->mostrarNumActasPoseidas();
-                
+                mostrarInfoActa();
                 break;
             case 0:
                 break;
@@ -332,6 +352,36 @@ void Universidad::ingresarComoJurado()
     }
 }
 
+void Universidad::numActasDirector(Director* director)
+{
+    int opcionUsuario;
+    bool existeActaPorNum = false;
+    for(map<int, Acta>::iterator pActa = actas.begin(); pActa != actas.end(); pActa++)
+    {
+        Acta actaActual = pActa->second;
+        if(stoi(actaActual.getDirectores()[1]) == director->getDocumento() || 
+           stoi(actaActual.getDirectores()[3]) == director->getDocumento())
+        {
+            cout << "Acta No." << actaActual.getNumeroTrabajo() << "\n";
+        }
+    }
+    do
+    {
+        cout << "Ingrese el numero del acta:\n";
+        cin >> opcionUsuario;
+        if(this->actas.find(opcionUsuario) != this->actas.end())
+        {
+            existeActaPorNum = true;
+            actas[opcionUsuario].mostrarActa();
+        }
+        else
+        {
+            existeActaPorNum = false;
+            cout << "Numero de acta inexistente, use otro.\n";
+        }
+    } while(!existeActaPorNum);
+}
+
 void Universidad::menuDirector(Director* director)
 {
     int opcionUsuario;
@@ -352,8 +402,8 @@ void Universidad::menuDirector(Director* director)
                 director->crearCriterio(actas[0]);
                 break;
             case 3:
-                director->mostrarActaSeleccionada(actas[0]);
-
+                numActasDirector(director);
+                break;
             case 0:
                 break;
             default: cout << "Opcion no contemplada, intentelo de nuevo\n";

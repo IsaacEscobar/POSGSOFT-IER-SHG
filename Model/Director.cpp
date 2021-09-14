@@ -81,34 +81,4 @@ void Director::crearCriterio(Acta acta)
     listaCriterios[identificador] = listaCriterio;
     system("PAUSE");
 
-}
-
-void Director::mostrarActaSeleccionada(Acta acta)
-{
-
-    cout << "Nombre Trabajo: " << acta.getNombreTrabajo();
-    cout << "Nombre Jurado 1: " << acta.getJurados()[0] << "-" << acta.getJurados()[0]; //posicion 0 nombre , 1 documento
-    cout << "Doc Jurado 1: " << acta.getJurados()[0] << "-" << acta.getJurados()[1];
-    cout << "Nombre Jurado 2: " << acta.getJurados()[1] << "-" << acta.getJurados()[0];
-    cout << "Doc Jurado 2: " << acta.getJurados()[1] << "-" << acta.getJurados()[1];
-    cout << "Director: " << acta.getDirectores()[0] << "-" << acta.getDirectores()[1]; // Director 0 nombre, 1 documento
-    cout << "Codirector: " << acta.getDirectores()[2] << "-" << acta.getDirectores()[3];// director 2 nombreCodirector, 3 documentoCodirector
-    cout << "Autor: " << acta.getAutor();
-    cout << "Tipo de trabajo: " << acta.getTipoTrabajo();
-    cout << "Numero de trabajo: " << acta.getNumeroTrabajo();
-    cout << "Fecha: " << acta.getFecha();
-    cout << "Tipo de trabajo: " << acta.getTipoTrabajo();
-    cout << "Observaciones adicionales: " << acta.getObvAdicionales();
-    cout << "Tipo de trabajo: " << acta.getTipoTrabajo();
-    cout << "Condiciones: " << acta.getCondiciones();
-
-    for(map<int,Criterio>::iterator pCriterios = acta.getCriterios().begin();
-     pCriterios != acta.getCriterios().end(); pCriterios++)
-    {
-        Criterio criterioActual = pCriterios->second;
-        cout << criterioActual.getIdentificador() << " - " << criterioActual.getEnunciado()
-        << criterioActual.getPonderacion() << criterioActual.getComentarios() << criterioActual.getCalificaciones() <<"\n";
-    }
-
-}
-    
+}   

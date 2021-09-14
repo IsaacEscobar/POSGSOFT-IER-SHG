@@ -5,35 +5,42 @@
 
 Acta::Acta()
 {
-
+    criterios[1] = Criterio(1, "Buena ortografia", 0.2, "", 0.0);
+    criterios[2] = Criterio(2, "Cumple los requisitos exigidos", 0.2, "", 0.0);
+    criterios[3] = Criterio(3, "Demuestra una buena sustentacion", 0.1, "", 0.0);
+    criterios[4] = Criterio(4, "Elabora de manera adecuada el tema asignado", 0.05, "", 0.0);
+    criterios[5] = Criterio(5, "Manejo de fuentes de manera correcta", 0.2, "", 0.0);
+    criterios[6] = Criterio(6, "Utiliza de manera correcta los recursos visuales y textuales", 
+                                  0.1, "", 0.0);
+    criterios[7] = Criterio(7, "Presenta un esquema completo", 0.1, "", 0.0);
+    criterios[8] = Criterio(8, "Entrega en el plazo asignado", 0.05, "", 0.0);
 }
 
 void Acta::mostrarActa()
 {
-    cout << "Nombre: " << nombreTrabajo << "\n";
+    cout << "Nombre trabajo: " << nombreTrabajo << "\n";
     cout << "Autor: " << autor << "\n";
-    cout << "Numero: " << numeroTrabajo << "\n";
-    cout << "Tipo: " << tipoTrabajo << "\n";
+    cout << "Acta No." << numeroTrabajo << "\n";
+    switch(tipoTrabajo)
+    {
+        case 1: cout << "Tipo: Investigacion\n";
+            break;
+        case 2: cout << "Tipo: Aplicado\n";
+            break;
+    }
     cout << "Fecha: " << fecha << "\n";
+    cout << "Jurado 1: " << jurados[0] << "\n";
+    cout << "Jurado 2: " << jurados[2] << "\n";
+    cout << "Director: " << directores[0] << "\n";
+    cout << "Codirector: " << directores[2] << "\n";
     cout << "Obvservaciones: " << obvAdicionales << "\n";
     cout << "Condiciones: " << condiciones << "\n";
-}
-
-void Acta::mostrarJurados()
-{
-   map<int, Acta>:: iterator i ;
-   map<int, Acta> listaJurados;
-   for(i = listaJurados.begin(); i != listaJurados.end(); i++)
-        cout << i->first << " " << i->second.getJurados() << endl;
-
-}
-
-void Acta::mostrarDirectores()
-{
-    map<int, Acta>:: iterator i ;
-    map<int, Acta> listaDirectores;
-    for(i = listaDirectores.begin(); i != listaDirectores.end(); i++)
-        cout << i->first << " " << i->second.getDirectores() << endl;
+    cout << "Criterios:\n";
+    for(map<int, Criterio>::iterator pCriterio = criterios.begin(); pCriterio != criterios.end(); pCriterio++)
+    {
+        Criterio criterioActual = pCriterio->second;
+        criterioActual.mostrarCriterio();
+    }
 }
 
 string Acta::getNombreTrabajo() 
@@ -66,12 +73,12 @@ void Acta::setNumeroTrabajo(int numeroTrabajo)
     this->numeroTrabajo = numeroTrabajo;
 }
 
-string Acta::getTipoTrabajo()
+int Acta::getTipoTrabajo()
 {
     return tipoTrabajo;
 }
 
-void Acta::setTipoTrabajo(string tipoTrabajo)
+void Acta::setTipoTrabajo(int tipoTrabajo)
 {
     this->tipoTrabajo = tipoTrabajo;
 }

@@ -15,13 +15,15 @@ using std::string;
 using std::array;
 using std::map;
 
+enum class tipo{Investigacion = 1, Aplicado = 2};
+
 class Acta 
 {
     private:
         string nombreTrabajo;
         string autor;
         int numeroTrabajo;
-        string tipoTrabajo;
+        int tipoTrabajo;
         string fecha;
         string obvAdicionales;
         string condiciones;
@@ -36,8 +38,8 @@ class Acta
         void setAutor(string Autor);
         int getNumeroTrabajo();
         void setNumeroTrabajo(int numeroTrabajo);
-        string getTipoTrabajo();
-        void setTipoTrabajo(string tipoTrabajo);
+        int getTipoTrabajo();
+        void setTipoTrabajo(int tipoTrabajo);
         string getFecha();
         void setFecha(string fecha);
         string getObvAdicionales();
@@ -48,8 +50,6 @@ class Acta
         string* getDirectores();
         map<int, Criterio> getCriterios();
         void mostrarActa();
-        void mostrarJurados();
-        void mostrarDirectores();
 };
 
 #endif // ACTA_H

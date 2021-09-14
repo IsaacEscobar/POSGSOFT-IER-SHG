@@ -13,15 +13,8 @@ Jurado::Jurado(string nombre, int documento)
 }
 
 void Jurado::calificarActa(Acta acta)
-
 {
-    string nombreTrabajo, autor, tipoTrabajo, fecha;
-    int numeroTrabajo;
-    acta.setNombreTrabajo(nombreTrabajo);
-    acta.setAutor(autor);
-    acta.setTipoTrabajo(tipoTrabajo);
-    acta.setFecha(fecha);
-    acta.setNumeroTrabajo(numeroTrabajo);
+    
 
 }
 
