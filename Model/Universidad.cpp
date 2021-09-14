@@ -382,6 +382,53 @@ void Universidad::numActasDirector(Director* director)
     } while(!existeActaPorNum);
 }
 
+void Universidad::modCriteriosDirector(Director* director)
+{
+    int opcionUsuario, opcionUsuario2;
+    bool existeActaPorNum = false, existeCriterioPorID = false;
+    for(map<int, Acta>::iterator pActa = actas.begin(); pActa != actas.end(); pActa++)
+    {
+        Acta actaActual = pActa->second;
+        if(stoi(actaActual.getDirectores()[1]) == director->getDocumento() || 
+           stoi(actaActual.getDirectores()[3]) == director->getDocumento())
+        {
+            cout << "Acta No." << actaActual.getNumeroTrabajo() << "\n";
+        }
+    }
+    do
+    {
+        cout << "Ingrese el numero del acta:\n";
+        cin >> opcionUsuario;
+        if(this->actas.find(opcionUsuario) != this->actas.end())
+        {
+            existeActaPorNum = true;
+            actas[opcionUsuario].mostrarActa();
+            do
+            {
+                cout << "Ingrese el identificador del criterio:\n";
+                cin >> opcionUsuario2;
+                if(this->actas[opcionUsuario].getCriterios().find(opcionUsuario2) 
+                   != this->actas[opcionUsuario].getCriterios().end())
+                {
+                    existeCriterioPorID = true;
+                    Criterio criterioModificado = actas[opcionUsuario].getCriterios()[opcionUsuario2];
+                    actas[opcionUsuario].modificarCriterio(opcionUsuario2);
+                }
+                else
+                {
+                    existeCriterioPorID = false;
+                    cout << "Identificador de criterio inexistente, use otro.\n";
+                }
+            } while(!existeCriterioPorID);
+        }
+        else
+        {
+            existeActaPorNum = false;
+            cout << "Numero de acta inexistente, use otro.\n";
+        }
+    } while(!existeActaPorNum);
+}
+
 void Universidad::menuDirector(Director* director)
 {
     int opcionUsuario;
@@ -395,7 +442,7 @@ void Universidad::menuDirector(Director* director)
         switch(opcionUsuario)
         {
             case 1:
-                director->modificarCriterio(actas[0]);
+                modCriteriosDirector(director);
                 break;
             case 2:
                 director->crearCriterio(actas[0]);

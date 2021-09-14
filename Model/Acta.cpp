@@ -43,6 +43,19 @@ void Acta::mostrarActa()
     }
 }
 
+void Acta::modificarCriterio(int posicion)
+{
+    string enunciado;
+    float ponderacion;
+    cout << "Escriba el nuevo enunciado:\n";
+    cin.ignore (std::numeric_limits<std::streamsize>::max(), '\n');
+    getline(cin, enunciado);
+    cout << "Digite la nueva ponderacion, obviando el %:\n";
+    cin >> ponderacion;
+    criterios[posicion].setEnunciado(enunciado);
+    criterios[posicion].setPonderacion(ponderacion / 100);
+}
+
 string Acta::getNombreTrabajo() 
 {
     return nombreTrabajo;

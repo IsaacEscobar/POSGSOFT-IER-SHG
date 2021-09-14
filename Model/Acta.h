@@ -50,6 +50,7 @@ class Acta
         string* getDirectores();
         map<int, Criterio> getCriterios();
         void mostrarActa();
+		void modificarCriterio(int posicion);
 };
 
 #endif // ACTA_H

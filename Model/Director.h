@@ -23,7 +23,6 @@ class Director: public Persona
 	public:
 		Director();
 		Director(string nombre, int documento);
-		void modificarCriterio(Acta acta);
 		void crearCriterio(Acta acta);
 };
 

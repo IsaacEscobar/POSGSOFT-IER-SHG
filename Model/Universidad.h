@@ -46,6 +46,7 @@ class Universidad
         void verificarDirectores(Acta* acta);
         void mostrarInfoActa();
         void numActasDirector(Director* director);
+        void modCriteriosDirector(Director* director);
 };
 
 #endif // UNIVERSIDAD_H
