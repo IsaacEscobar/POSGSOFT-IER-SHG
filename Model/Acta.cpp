@@ -1,7 +1,4 @@
 #include "Acta.h"
-#include "Director.h"
-#include "Jurado.h"
-#include "Criterio.h"
 
 Acta::Acta()
 {
@@ -54,6 +51,38 @@ void Acta::modificarCriterio(int posicion)
     cin >> ponderacion;
     criterios[posicion].setEnunciado(enunciado);
     criterios[posicion].setPonderacion(ponderacion / 100);
+}
+
+void Acta::crearCriterio()
+{
+    int identificador;
+    string enunciado;
+    float ponderacion;
+    bool existeIdentificador = true;
+    cout << "Ingrese el enunciado:\n";
+    cin.ignore (std::numeric_limits<std::streamsize>::max(), '\n');
+    getline(cin, enunciado);
+    cout << "Ingrese la ponderacion:\n";
+    cin >> ponderacion;
+    do
+    {
+        cout << "Ingrese el identificador (debe ser mayor a 0):\n";
+        cin >> identificador;
+        if(criterios.find(identificador) != criterios.end())
+        {
+            existeIdentificador = true;
+            cout << "Identificador existente, use otro.\n";
+        }
+        else
+        {
+            existeIdentificador =false;
+            criterios[identificador].setIdentificador(identificador);
+            criterios[identificador].setEnunciado(enunciado);
+            criterios[identificador].setPonderacion(ponderacion / 100);
+            criterios[identificador].setCalificaciones(0.0);
+            criterios[identificador].setComentarios("");
+        }
+    } while(existeIdentificador);
 }
 
 string Acta::getNombreTrabajo() 

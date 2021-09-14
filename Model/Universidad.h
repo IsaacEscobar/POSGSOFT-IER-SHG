@@ -31,7 +31,6 @@ class Universidad
         map<int, Director> directores;
     public:
         Universidad();
-        void mostrarReportes();
         void crearAsistente();
         void crearJurado();
         void crearDirector();
@@ -47,6 +46,7 @@ class Universidad
         void mostrarInfoActa();
         void numActasDirector(Director* director);
         void modCriteriosDirector(Director* director);
+        void crearCriterio(Director* director);
 };
 
 #endif // UNIVERSIDAD_H

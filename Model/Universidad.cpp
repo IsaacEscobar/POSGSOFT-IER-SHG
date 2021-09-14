@@ -2,17 +2,12 @@
 
 Universidad::Universidad()
 {
-    this->asistentes[10] = Asistente("I", 10);
-    this->directores[10] = Director("M", 10);
+    this->asistentes[1] = Asistente("I", 1);
+    this->directores[1] = Director("M", 1);
     this->directores[11] = Director("J", 11);
-    this->jurados[10] = Jurado("K", 10);
+    this->jurados[1] = Jurado("K", 1);
     this->jurados[11] = Jurado("L", 11);
 }
-
-// void Universidad::mostrarReportes()
-// {
-//     return mostrarReportes;
-// }
 
 void Universidad::crearAsistente()
 {
@@ -130,14 +125,14 @@ void Universidad::verificarJurados(Acta* nuevaActa)
                     else
                     {
                         docJurado2Existe = false;
-                        cout << "El jurado no se encuentra registrado.";
+                        cout << "El jurado no se encuentra registrado.\n";
                     }
                 } while(!docJurado2Existe);
             }
             else
             {  
                 docJurado1Existe = false;
-                cout << "El jurado no se encuentra registrado.";
+                cout << "El jurado no se encuentra registrado.\n";
             }
         } while(!docJurado1Existe); 
 }
@@ -170,7 +165,7 @@ void Universidad::verificarDirectores(Acta* nuevaActa)
                         else
                         {
                             docDirector1Existe = false;
-                            cout << "El director no se encuentra registrado.";
+                            cout << "El director no se encuentra registrado.\n";
                         }
                     }
                     else
@@ -186,7 +181,7 @@ void Universidad::verificarDirectores(Acta* nuevaActa)
             else
             {  
                 docDirector1Existe = false;
-                cout << "El director no se encuentra registrado.";
+                cout << "El director no se encuentra registrado.\n";
             }
         } while(!docDirector1Existe); 
 }
@@ -429,6 +424,37 @@ void Universidad::modCriteriosDirector(Director* director)
     } while(!existeActaPorNum);
 }
 
+void Universidad::crearCriterio(Director* director)
+{
+    int opcionUsuario, identificador;
+    bool existeActaPorNum = false, existeIdentificador = true;
+    Criterio nuevoCriterio;
+    for(map<int, Acta>::iterator pActa = actas.begin(); pActa != actas.end(); pActa++)
+    {
+        Acta actaActual = pActa->second;
+        if(stoi(actaActual.getDirectores()[1]) == director->getDocumento() || 
+           stoi(actaActual.getDirectores()[3]) == director->getDocumento())
+        {
+            cout << "Acta No." << actaActual.getNumeroTrabajo() << "\n";
+        }
+    }
+    do
+    {
+        cout << "Ingrese el numero del acta:\n";
+        cin >> opcionUsuario;
+        if(this->actas.find(opcionUsuario) != this->actas.end())
+        {
+            existeActaPorNum = true;
+            actas[opcionUsuario].crearCriterio();
+        }
+        else
+        {
+            existeActaPorNum = false;
+            cout << "Numero de acta inexistente, use otro.\n";
+        }
+    } while(!existeActaPorNum);
+}
+
 void Universidad::menuDirector(Director* director)
 {
     int opcionUsuario;
@@ -446,7 +472,7 @@ void Universidad::menuDirector(Director* director)
                 modCriteriosDirector(director);
                 break;
             case 2:
-                director->crearCriterio(actas[0]);
+                crearCriterio(director);
                 break;
             case 3:
                 numActasDirector(director);

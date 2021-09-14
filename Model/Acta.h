@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <stdlib.h>
+#include <ios>
+#include <limits>
 #include <map>
 #include <array>
 #include "Criterio.h"
@@ -51,6 +53,7 @@ class Acta
         map<int, Criterio> getCriterios();
         void mostrarActa();
 		void modificarCriterio(int posicion);
+        void crearCriterio();
 };
 
 #endif // ACTA_H
