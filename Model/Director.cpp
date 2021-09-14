@@ -65,9 +65,11 @@ void Director::crearCriterio(Acta acta)
 	    }
 	    else
 	    {
-		    cout << "Escriba comentarios del criterio nuevo: " "\n";
-            cin >> comentarios;
-            cout << "Comentario actualizado: " "\n";
+		    cout << "Escriba enunciado: " "\n";
+            cin >> enunciado;
+            cout << "Escriba valor de ponderacion: ""\n";
+            cin >> ponderacion;
+            cout << "Criterio actualizado: " "\n";
 	    }
         break;
     }
@@ -81,4 +83,5 @@ void Director::crearCriterio(Acta acta)
     listaCriterios[identificador] = listaCriterio;
     system("PAUSE");
 
-}   
+}
+

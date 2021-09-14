@@ -389,7 +389,6 @@ void Universidad::menuDirector(Director* director)
     {
         cout << "1. Modificar criterios.\n";
         cout << "2. Anadir criterio.\n";
-        cout << "3. Mostrar Acta seleccionada\n";
         cout << "0. Volver.\n";
         cout << "Digite el numero: ";
         cin >> opcionUsuario;
@@ -400,9 +399,6 @@ void Universidad::menuDirector(Director* director)
                 break;
             case 2:
                 director->crearCriterio(actas[0]);
-                break;
-            case 3:
-                numActasDirector(director);
                 break;
             case 0:
                 break;
