@@ -19,7 +19,7 @@ Criterio::Criterio(int identificador, string enunciado, float ponderacion,
 
 void Criterio::mostrarCriterio()
 {
-    cout << "Identificador: " << identificador << "\n";
+    cout << "Criterio No. " << identificador << "\n";
     cout << "Enunciado: " << enunciado << "\n";
     cout << "Ponderacion: " << ponderacion * 100 << "%\n";
     cout << "Comentarios: " << comentarios << "\n";

@@ -35,15 +35,11 @@ void Acta::mostrarActa()
     cout << "Codirector: " << directores[2] << "\n";
     cout << "Obvservaciones: " << obvAdicionales << "\n";
     cout << "Condiciones: " << condiciones << "\n";
-    cout << "Calificaciones:\n";
+    cout << "Criterios:\n";
     for(map<int, Criterio>::iterator pCriterio = criterios.begin(); pCriterio != criterios.end(); pCriterio++)
     {
         Criterio criterioActual = pCriterio->second;
-        cout << "Criterio No." << criterioActual.getIdentificador() 
-        << "\nEnunciado: " << criterioActual.getEnunciado()
-        << "\nPonderacion: " << criterioActual.getPonderacion()
-        << "\nCalificacion: " << criterioActual.getCalificaciones()
-        << "Comentarios: " << criterioActual.getComentarios() << "\n";
+        criterioActual.mostrarCriterio();
     }
 }
 
