@@ -21,7 +21,7 @@ void Criterio::mostrarCriterio()
 {
     cout << "Criterio No. " << identificador << "\n";
     cout << "Enunciado: " << enunciado << "\n";
-    cout << "Ponderacion: " << ponderacion * 100 << "%\n";
+    cout << "Ponderacion: " << ponderacion * 100<< "%\n";
     cout << "Comentarios: " << comentarios << "\n";
     cout << "Calificaciones: " << calificaciones << "\n";
 }
