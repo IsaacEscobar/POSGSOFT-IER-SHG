@@ -1,5 +1,5 @@
 #include "Jurado.h"
-#include <fstream>
+
 
 Jurado::Jurado()
 {

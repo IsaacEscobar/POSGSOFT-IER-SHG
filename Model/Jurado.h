@@ -15,6 +15,7 @@ using std::getline;
 using std::string;
 using std::map;
 using std::iterator;
+using std::fstream;
 
 class Jurado: public Persona
 {
@@ -22,7 +23,7 @@ class Jurado: public Persona
 		Jurado();
 		void calificarActa(Acta acta);
 		void exportarActa(Acta acta);
-		void exportarActa();
+		
 };
 
 #endif // JURADO_H

@@ -6,7 +6,7 @@
 #include <map>
 #include <array>
 #include "Criterio.h"
-#include "Director.h"
+
 
 using std::cin;
 using std::cout;

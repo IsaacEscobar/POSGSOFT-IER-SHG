@@ -20,7 +20,6 @@ void Director::modificarCriterio(Acta acta)
         cin >> ponderacion;
         cout << "calificacion:";
         
-
     } 
     while(existeIdentificador);
 }
