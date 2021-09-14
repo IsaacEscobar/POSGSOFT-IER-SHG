@@ -21,7 +21,7 @@ class Director: public Persona
 		Director();
 		void modificarCriterio(Acta acta);
 		void crearCriterio(Acta acta);
-		void mostrarCriterio(Acta acta);
+		void mostrarActaSeleccionada(Acta acta);
 };
 
 #endif // DIRECTOR_H

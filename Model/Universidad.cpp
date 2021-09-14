@@ -347,7 +347,7 @@ void Universidad::menuDirector(Director director)
                 director.crearCriterio(actas[0]);
                 break;
             case 3:
-                director.mostrarCriterio(actas[0]);
+                director.mostrarActaSeleccionada(actas[0]);
             case 0:
                 break;
             default: cout << "Opcion no contemplada, intentelo de nuevo\n";
