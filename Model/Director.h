@@ -7,6 +7,7 @@
 #include <iterator>
 #include "Persona.h"
 
+
 using std::cin;
 using std::cout;
 using std::endl;
@@ -14,6 +15,8 @@ using std::getline;
 using std::string;
 using std::map;
 using std::iterator;
+
+
 
 class Director: public Persona
 {

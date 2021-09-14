@@ -13,13 +13,22 @@ void Director::modificarCriterio(Acta acta)
     map<int, Criterio> listaCriterios = acta.getCriterios();
     do
     {
-        cout <<"Identificador: ";
-        cout << "Enunciado del proyecto:";
-        cout << "comentarios:";
-        cout << "Ingrese la ponderacion del acta:";
-        cin >> ponderacion;
-        cout << "calificacion:";
+        cout <<"Identificador: " << identificador << "\n";
+        cout << "Enunciado del proyecto: " << enunciado << "\n";
+        cout << "comentarios: " << comentarios << "\n";
+        cout << "Ponderacion del acta: " << ponderacion << "\n" ;
+        cout << "calificacion:" << calificaciones << "\n";
         
+
+        if( ponderacion >= 0.10)
+        {
+            cout << "se ha cambiado el valor de la ponderacion";
+        }
+        else
+        {
+            cout <<"no realizó ningun cambio en la ponderacion";
+        }
+    
     } 
     while(existeIdentificador);
 }
@@ -63,10 +72,10 @@ void Director::mostrarActaSeleccionada(Acta acta)
 {
 
     cout << "Nombre Trabajo: " << acta.getNombreTrabajo();
-    cout << "Jurado 1: " << acta.getJurados()[0] << "-" << acta.getJurados()[0]; //posicion 0 nombre , 1 documento
-    cout << "Jurado 1: " << acta.getJurados()[0] << "-" << acta.getJurados()[1];
-    cout << "Jurado 2: " << acta.getJurados()[1] << "-" << acta.getJurados()[0];
-    cout << "Jurado 2: " << acta.getJurados()[1] << "-" << acta.getJurados()[1];
+    cout << "Nombre Jurado 1: " << acta.getJurados()[0] << "-" << acta.getJurados()[0]; //posicion 0 nombre , 1 documento
+    cout << "Doc Jurado 1: " << acta.getJurados()[0] << "-" << acta.getJurados()[1];
+    cout << "Nombre Jurado 2: " << acta.getJurados()[1] << "-" << acta.getJurados()[0];
+    cout << "Doc Jurado 2: " << acta.getJurados()[1] << "-" << acta.getJurados()[1];
     cout << "Director: " << acta.getDirectores()[0] << "-" << acta.getDirectores()[1]; // Director 0 nombre, 1 documento
     cout << "Codirector: " << acta.getDirectores()[2] << "-" << acta.getDirectores()[3];// director 2 nombreCodirector, 3 documentoCodirector
     cout << "Autor: " << acta.getAutor();
@@ -77,10 +86,14 @@ void Director::mostrarActaSeleccionada(Acta acta)
     cout << "Observaciones adicionales: " << acta.getObvAdicionales();
     cout << "Tipo de trabajo: " << acta.getTipoTrabajo();
     cout << "Condiciones: " << acta.getCondiciones();
+
     for(map<int,Criterio>::iterator pCriterios = acta.getCriterios().begin();
      pCriterios != acta.getCriterios().end(); pCriterios++)
     {
-        cout << pCriterios->first << ": " << pCriterios->second.getIdentificador() << endl;
+        Criterio criterioActual = pCriterios->second;
+        cout << criterioActual.getIdentificador() << " - " << criterioActual.getEnunciado()
+        << criterioActual.getPonderacion() << criterioActual.getComentarios() << criterioActual.getCalificaciones() <<"\n";
     }
+
 }
     
