@@ -20,23 +20,20 @@ void Director::modificarCriterio(Acta acta)
     map<int, Criterio> listaCriterios = acta.getCriterios();
     do
     {
-        cout <<"Identificador: " << identificador << "\n";
-        cout << "Enunciado del proyecto: " << enunciado << "\n";
-        cout << "comentarios: " << comentarios << "\n";
-        cout << "Ponderacion del acta: " << ponderacion << "\n" ;
-        cout << "calificacion:" << calificaciones << "\n";
         
-
+        cout << "Ponderacion del acta: " ;
+        cin >> (ponderacion);
+    
         if( ponderacion >= 0.10)
         {
-            cout << "se ha cambiado el valor de la ponderacion";
+            cout << "se ha cambiado el valor de la ponderacion""\n";
         }
         else
         {
-            cout <<"no realizó ningun cambio en la ponderacion";
+            cout <<"no realizó ningun cambio en la ponderacion""\n";
         }
-    
-    } 
+        break;
+    }
     while(existeIdentificador);
     Criterio listaCriterio;
     listaCriterio.setIdentificador(identificador);
@@ -45,9 +42,10 @@ void Director::modificarCriterio(Acta acta)
     listaCriterio.setPonderacion(ponderacion);
     listaCriterio.setCalificaciones(calificaciones);
     listaCriterios[identificador] = listaCriterio;
-    cout << listaCriterio.getIdentificador() << " con identificador No." << listaCriterio.getEnunciado()
-         << "\nEnunciados :" << listaCriterio.getComentarios() << "\nComentarios :" << listaCriterio.getPonderacion()
-         << "\nPonderacion: " << listaCriterio.getCalificaciones() << "\nCalificaciones";
+    //cout << listaCriterio.getIdentificador() << " con identificador No." << listaCriterio.getEnunciado()
+     //    << "\nEnunciados :" << listaCriterio.getComentarios() << "\nComentarios :" << listaCriterio.getPonderacion()
+      //   << "\nPonderacion: " << listaCriterio.getCalificaciones() << "\nCalificaciones";
+    system("PAUSE");
 }
 
 void Director::crearCriterio(Acta acta)
