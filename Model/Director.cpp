@@ -15,7 +15,7 @@ void Director::modificarCriterio(Acta acta)
 {
     int identificador;
     string enunciado, comentarios;
-    float ponderacion, calificaciones;
+    float ponderacion = 10.0, calificaciones = 0.0;
     bool existeIdentificador = true;
     map<int, Criterio> listaCriterios = acta.getCriterios();
     do
@@ -38,6 +38,16 @@ void Director::modificarCriterio(Acta acta)
     
     } 
     while(existeIdentificador);
+    Criterio listaCriterio;
+    listaCriterio.setIdentificador(identificador);
+    listaCriterio.setEnunciado(enunciado);
+    listaCriterio.setComentarios(comentarios);
+    listaCriterio.setPonderacion(ponderacion);
+    listaCriterio.setCalificaciones(calificaciones);
+    listaCriterios[identificador] = listaCriterio;
+    cout << listaCriterio.getIdentificador() << " con identificador No." << listaCriterio.getEnunciado()
+         << "\nEnunciados :" << listaCriterio.getComentarios() << "\nComentarios :" << listaCriterio.getPonderacion()
+         << "\nPonderacion: " << listaCriterio.getCalificaciones() << "\nCalificaciones";
 }
 
 void Director::crearCriterio(Acta acta)
