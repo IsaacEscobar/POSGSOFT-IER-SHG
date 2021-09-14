@@ -18,6 +18,7 @@ using std::endl;
 using std::getline;
 using std::string;
 using std::to_string;
+using std::stoi;
 using std::map;
 using std::iterator;
 
@@ -44,6 +45,7 @@ class Universidad
         void verificarJurados(Acta* acta);
         void verificarDirectores(Acta* acta);
         void mostrarInfoActa();
+        void numActasDirector(Director* director);
 };
 
 #endif // UNIVERSIDAD_H
