@@ -32,7 +32,7 @@ public:																												  //Metodos
 	void setComentarios(string comentarios);
 	float getCalificaciones();
 	void setCalificaciones(float calificaciones);
-	void mostrarCriterio(int indentificador, string enunciado, float ponderacion, string comentarios, float calificaciones);
+	void mostrarCriterio();
 	
 };
 

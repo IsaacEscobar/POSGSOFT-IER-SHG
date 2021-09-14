@@ -224,10 +224,30 @@ void Universidad::generarActa(Asistente* asistente)
                 cout << directorActual.getNombre() << " - " << directorActual.getDocumento() << "\n";
             }
             verificarDirectores(&nuevaActa);
-            cout << nuevaActa.getDirectores()[0] << " - " << nuevaActa.getDirectores()[1] << "\n";
         }
     } while(existeActaPorNum);
     actas[numeroTrabajo] = nuevaActa;
+}
+
+void Universidad::mostrarInfoActa()
+{
+    int opcionUsuario;
+    bool existeActaPorNum = false;
+    cout << "Digite el numero del acta a revisar:\n";
+    cin >> opcionUsuario;
+    do
+    {
+        if(this->actas.find(opcionUsuario) != this->actas.end())
+        {
+            existeActaPorNum = true;
+            actas[opcionUsuario].mostrarActa();
+        }
+        else
+        {
+            existeActaPorNum = false;
+            cout << "Numero de acta inexistente, use otro.\n";
+        }
+    } while(!existeActaPorNum);
 }
 
 void Universidad::menuAsistente(Asistente* asistente)
@@ -247,7 +267,7 @@ void Universidad::menuAsistente(Asistente* asistente)
                 break;
             case 2:
                 asistente->mostrarNumActasPoseidas();
-                
+                mostrarInfoActa();
                 break;
             case 0:
                 break;

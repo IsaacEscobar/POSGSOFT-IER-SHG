@@ -2,8 +2,13 @@
 #include "Acta.h"
 
 // constructor por defecto
-Criterio::Criterio()
-    
+Criterio::Criterio() 
+{
+
+}
+
+Criterio::Criterio(int identificador, string enunciado, float ponderacion, 
+					string comentarios, float calificaciones)
 {
 	this->identificador = identificador;
 	this->enunciado = enunciado;
@@ -12,14 +17,13 @@ Criterio::Criterio()
 	this->calificaciones = calificaciones;	
 }
 
-
-void Criterio::mostrarCriterio(int indentificador, string enunciado, float ponderacion, string comentarios, float calificaciones)
+void Criterio::mostrarCriterio()
 {
-    cout << "identificador" << identificador << "\n";
-    cout << "enunciado" << enunciado << "\n";
-    cout << "ponderacion" << ponderacion << "\n";
-    cout << "comentarios" << comentarios << "\n";
-    cout << "calificaciones" << calificaciones << "\n";
+    cout << "Identificador: " << identificador << "\n";
+    cout << "Enunciado: " << enunciado << "\n";
+    cout << "Ponderacion: " << ponderacion * 100 << "%\n";
+    cout << "Comentarios: " << comentarios << "\n";
+    cout << "Calificaciones: " << calificaciones << "\n";
 }
 
 void Criterio::setIdentificador(int identificador)

@@ -40,9 +40,10 @@ class Universidad
         void menuAsistente(Asistente* asistente);
         void menuJurado(Jurado* jurado);
         void menuDirector(Director* director);
-        void generarActa(Asistente *asistente);
-        void verificarJurados(Acta *acta);
-        void verificarDirectores(Acta *acta);
+        void generarActa(Asistente* asistente);
+        void verificarJurados(Acta* acta);
+        void verificarDirectores(Acta* acta);
+        void mostrarInfoActa();
 };
 
 #endif // UNIVERSIDAD_H

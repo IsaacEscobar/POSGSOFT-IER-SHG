@@ -10,30 +10,30 @@ Acta::Acta()
 
 void Acta::mostrarActa()
 {
-    cout << "Nombre: " << nombreTrabajo << "\n";
+    cout << "Nombre trabajo: " << nombreTrabajo << "\n";
     cout << "Autor: " << autor << "\n";
-    cout << "Numero: " << numeroTrabajo << "\n";
-    cout << "Tipo: " << tipoTrabajo << "\n";
+    cout << "Acta No." << numeroTrabajo << "\n";
+    switch(tipoTrabajo)
+    {
+        case 1: cout << "Tipo: Investigacion\n";
+            break;
+        case 2: cout << "Tipo: Aplicado\n";
+            break;
+    }
     cout << "Fecha: " << fecha << "\n";
+    cout << "Jurado 1: " << jurados[0] << "\n";
+    cout << "Jurado 2: " << jurados[2] << "\n";
+    cout << "Director: " << directores[0] << "\n";
+    cout << "Codirector: " << directores[2] << "\n";
     cout << "Obvservaciones: " << obvAdicionales << "\n";
     cout << "Condiciones: " << condiciones << "\n";
-}
-
-void Acta::mostrarJurados()
-{
-   map<int, Acta>:: iterator i ;
-   map<int, Acta> listaJurados;
-   for(i = listaJurados.begin(); i != listaJurados.end(); i++)
-        cout << i->first << " " << i->second.getJurados() << endl;
-
-}
-
-void Acta::mostrarDirectores()
-{
-    map<int, Acta>:: iterator i ;
-    map<int, Acta> listaDirectores;
-    for(i = listaDirectores.begin(); i != listaDirectores.end(); i++)
-        cout << i->first << " " << i->second.getDirectores() << endl;
+    cout << "Calificaciones:\n";
+    for(map<int, Criterio>::iterator pCriterio = criterios.begin(); pCriterio != criterios.end(); pCriterio++)
+    {
+        Criterio criterioActual = pCriterio->second;
+        cout << "Criterio No." << criterioActual.getIdentificador() << " - " 
+        << criterioActual.getCalificaciones() << "\n";
+    }
 }
 
 string Acta::getNombreTrabajo() 
@@ -66,12 +66,12 @@ void Acta::setNumeroTrabajo(int numeroTrabajo)
     this->numeroTrabajo = numeroTrabajo;
 }
 
-string Acta::getTipoTrabajo()
+int Acta::getTipoTrabajo()
 {
     return tipoTrabajo;
 }
 
-void Acta::setTipoTrabajo(string tipoTrabajo)
+void Acta::setTipoTrabajo(int tipoTrabajo)
 {
     this->tipoTrabajo = tipoTrabajo;
 }
