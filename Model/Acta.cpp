@@ -39,8 +39,11 @@ void Acta::mostrarActa()
     for(map<int, Criterio>::iterator pCriterio = criterios.begin(); pCriterio != criterios.end(); pCriterio++)
     {
         Criterio criterioActual = pCriterio->second;
-        cout << "Criterio No." << criterioActual.getIdentificador() << " - " 
-        << criterioActual.getCalificaciones() << "\n";
+        cout << "Criterio No." << criterioActual.getIdentificador() 
+        << "\nEnunciado: " << criterioActual.getEnunciado()
+        << "\nPonderacion: " << criterioActual.getPonderacion()
+        << "\nCalificacion: " << criterioActual.getCalificaciones()
+        << "Comentarios: " << criterioActual.getComentarios() << "\n";
     }
 }
 
