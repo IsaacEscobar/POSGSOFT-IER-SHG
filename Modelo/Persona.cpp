@@ -1,5 +1,5 @@
 #include "Persona.h"
-
+// clase padre
 // constructor por defecto
 Persona::Persona()
 {
