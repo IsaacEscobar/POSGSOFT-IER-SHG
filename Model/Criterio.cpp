@@ -8,6 +8,8 @@ Criterio::Criterio()
 }
 
 Criterio::Criterio(int identificador, string enunciado, float ponderacion, string comentarios)
+
+//creamos apuntadores para los atributos de nuestra clase 
 {
 	this->identificador = identificador;
 	this->enunciado = enunciado;
@@ -17,6 +19,8 @@ Criterio::Criterio(int identificador, string enunciado, float ponderacion, strin
 }
 
 void Criterio::mostrarCriterio()
+//mostramos al usuario la informacion de cada criterio
+//en este caso son 8 criterios ya definidos.
 {
     cout << "Criterio No. " << identificador << "\n";
     cout << "Enunciado: " << enunciado << "\n";

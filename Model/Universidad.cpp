@@ -2,6 +2,7 @@
 
 Universidad::Universidad()
 {
+	//creamos e inicializamos apuntadores necesarios para la clase
     this->asistentes[1] = Asistente("I", 1);
     this->directores[1] = Director("M", 1);
     this->directores[11] = Director("J", 11);
@@ -9,16 +10,23 @@ Universidad::Universidad()
     this->jurados[11] = Jurado("L", 11);
 }
 
+
 void Universidad::crearAsistente()
 {
+	//elementos heredades de la clase padre persona 
     int numDocumento;
     string nombre;
     bool existeDocumento = true;
+    // solicitamos datos al usuario ignorando espacios e imprimiendo 
+    // variable
     cout << "Ingrese su nombre: ";
     cin.ignore (std::numeric_limits<std::streamsize>::max(), '\n'); 
     getline(cin, nombre);
     do 
     {
+    	//solicitamos documentos y hacemos validacion 
+    	// si existe o no  ,crean una varibale booleana e implementando
+    	// un if 
         cout << "Ingrese su No. de documento: ";
         cin >> numDocumento;
         if (this->asistentes.find(numDocumento) != this->asistentes.end())
@@ -30,6 +38,9 @@ void Universidad::crearAsistente()
 	    {
 		    existeDocumento = false;
 	    }
+	// en caso de que el asistente no se encuentre registrado en el 
+	//sistema, este al ingresar su los datos solicitados se guardara y podra
+	//realizar funciones de asistente    
     } while(existeDocumento);
     Asistente nuevoAsistente;
     nuevoAsistente.setNombre(nombre);
@@ -41,14 +52,20 @@ void Universidad::crearAsistente()
 
 void Universidad::crearJurado()
 {
+	////elementos heredades de la clase padre persona
     int numDocumento;
     string nombre;
     bool existeDocumento = true;
     cout << "Ingrese su nombre: ";
+    // solicitamos datos al usuario ignorando espacios e imprimiendo 
+    // variable
     cin.ignore (std::numeric_limits<std::streamsize>::max(), '\n'); 
     getline(cin, nombre);
     do 
     {
+    	//solicitamos documentos y hacemos validacion 
+    	// si existe o no  ,crean una varibale booleana e implementando
+    	// un if 
         cout << "Ingrese su No. de documento: ";
         cin >> numDocumento;
         if (this->jurados.find(numDocumento) != this->jurados.end())
@@ -60,6 +77,9 @@ void Universidad::crearJurado()
 	    {
 		    existeDocumento = false;
 	    }
+	    // en caso de que el jurado no se encuentre registrado en el 
+	//sistema, este al ingresar su los datos solicitados se guardara y podra
+	//realizar funciones de jurado   
     } while(existeDocumento);
     Jurado nuevoJurado;
     nuevoJurado.setNombre(nombre);
@@ -99,12 +119,17 @@ void Universidad::crearDirector()
     " ha sido agregado.\n";
 }
 
+// metodo para verificar informacion necesaria para crear acta
 void Universidad::verificarJurados(Acta* nuevaActa)
 {
+	// informacion de jurado 
     int docJurado1, docJurado2;
     bool docJurado1Existe = false, docJurado2Existe = false;
     do
         {
+        	//verificacion con documento de cada jurado si existe 
+        	// con esta misma informacion puede acceder a funciones 
+        	//jurado
             cout << "Ingrese el documento del jurado 1:\n";
             cin >> docJurado1;
             if(this->jurados.find(docJurado1) != this->jurados.end())
@@ -138,6 +163,8 @@ void Universidad::verificarJurados(Acta* nuevaActa)
 }
 
 void Universidad::verificarDirectores(Acta* nuevaActa)
+// informacion de directores posicon 0 nombre 1 documento 
+// posicion 2 nombre Codirector  3 documento Codirector 
 {
     int docDirector1, docDirector2;
     bool docDirector1Existe = false, docDirector2Existe = false;
@@ -187,12 +214,14 @@ void Universidad::verificarDirectores(Acta* nuevaActa)
 }
 
 void Universidad::generarActa(Asistente* asistente)
+//vamos a recibir un apuntor del la clase asistente
 {
     int numeroTrabajo;
     Acta nuevaActa;
     bool existeActaPorNum = true;
     do
     { 
+    //solicitamos informacion de identificacion del acta (REPORTE)
         cout << "Digite el numero del trabajo:\n";
         cin >> numeroTrabajo;
         nuevaActa.setNumeroTrabajo(numeroTrabajo);
@@ -202,6 +231,9 @@ void Universidad::generarActa(Asistente* asistente)
             cout << "Numero de acta existente, use otro.\n";
         }
         else
+        // Informacion solicitada y guardada en nuestros mapas
+        // con su respectivo valor y tipo 
+        // para ser llamadas en su debido apuntador
         {
             existeActaPorNum = false;
             asistente->generarActa(numeroTrabajo, &nuevaActa);
@@ -225,6 +257,11 @@ void Universidad::generarActa(Asistente* asistente)
 }
 
 void Universidad::mostrarInfoActa()
+// creamos un ciclo donde si ya hay un acta generada 
+// la busca e imprime informacion 
+
+// tenemos que verificar que el acta exista y es con 
+//numero de acta
 {
     int opcionUsuario;
     bool existeActaPorNum = false;
@@ -244,7 +281,7 @@ void Universidad::mostrarInfoActa()
         }
     } while(!existeActaPorNum);
 }
-
+// funcionalidades de asistente, recibe un apuntador 
 void Universidad::menuAsistente(Asistente* asistente)
 {
     int opcionUsuario;
@@ -273,6 +310,7 @@ void Universidad::menuAsistente(Asistente* asistente)
 }
 
 void Universidad::ingresarComoAsistente()
+// validacion de informacion para acceder a funciones de asistente
 {
     int numDocumento;
     cout << "Asistentes en lista:\n";
@@ -295,6 +333,11 @@ void Universidad::ingresarComoAsistente()
     }
 }
 
+// ingresaremos al acta ya creada y finalamente el jurado sera el encargado 
+// de generar la calificacion 
+// tanto jurado 1 como jurado 2 ponen su calificacion 
+
+// se valida que jurado exista y que el acta tambien exista 
 void Universidad::calificarActa(Jurado* jurado)
 {
     int opcionUsuario;
@@ -325,6 +368,8 @@ void Universidad::calificarActa(Jurado* jurado)
     } while(!existeActaPorNum);
 }
 
+// se valida que exista un acta 
+// se valida que existan los dos jurados 
 void Universidad::exportarActa(Jurado* jurado)
 {
     int opcionUsuario;
@@ -355,6 +400,7 @@ void Universidad::exportarActa(Jurado* jurado)
     } while(!existeActaPorNum);
 }
 
+// funciones de jurado 
 void Universidad::menuJurado(Jurado* jurado)
 {
     int opcionUsuario;
@@ -381,7 +427,7 @@ void Universidad::menuJurado(Jurado* jurado)
     } while(opcionUsuario != 0);
 }
 
-
+// verificar que jurado existe en el mapa de jurados con su documento 
 void Universidad::ingresarComoJurado()
 {
     int numDocumento;
@@ -405,6 +451,7 @@ void Universidad::ingresarComoJurado()
         }
     }
 }
+
 
 void Universidad::numActasDirector(Director* director)
 {
@@ -436,6 +483,10 @@ void Universidad::numActasDirector(Director* director)
     } while(!existeActaPorNum);
 }
 
+// modificar criterios 
+// su ponderacion de cada criterio 
+// que va desde la posicion 1 - 8
+// evaluar si existe director para acceder a esta funcion 
 void Universidad::modCriteriosDirector(Director* director)
 {
     int opcionUsuario, opcionUsuario2;
@@ -483,6 +534,8 @@ void Universidad::modCriteriosDirector(Director* director)
     } while(!existeActaPorNum);
 }
 
+// evaluar si existe director con su documento para acceder a su funcion 
+// evaluar si existe el acta en el mapa de acta 
 void Universidad::crearCriterio(Director* director)
 {
     int opcionUsuario, identificador;
@@ -513,7 +566,7 @@ void Universidad::crearCriterio(Director* director)
         }
     } while(!existeActaPorNum);
 }
-
+// funciones director 
 void Universidad::menuDirector(Director* director)
 {
     int opcionUsuario;
@@ -539,7 +592,8 @@ void Universidad::menuDirector(Director* director)
         }
     } while(opcionUsuario != 0);
 }
-
+// veirfiicar si existe el director con documento
+// si existe en el mapa de director 
 void Universidad::ingresarComoDirector()
 {
     int numDocumento;
