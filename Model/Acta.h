@@ -19,6 +19,7 @@ using std::array;
 using std::map;
 using std::iterator;
 using std::ofstream;
+using std::ios;
 
 enum class tipo{Investigacion = 1, Aplicado = 2};
 
@@ -59,6 +60,7 @@ class Acta
         void crearCriterio();
         void calificar();
         void exportarActa();
+        void writeCSV(string archivo);
 };
 
 #endif // ACTA_H

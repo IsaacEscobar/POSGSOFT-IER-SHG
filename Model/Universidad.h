@@ -7,6 +7,7 @@
 #include <limits>
 #include <map>
 #include <iterator>
+#include <fstream>
 #include "Acta.h"
 #include "Asistente.h"
 #include "Jurado.h"
@@ -21,6 +22,8 @@ using std::to_string;
 using std::stoi;
 using std::map;
 using std::iterator;
+using std::ofstream;
+using std::ifstream;
 
 class Universidad 
 {
@@ -49,6 +52,8 @@ class Universidad
         void crearCriterio(Director* director);
         void calificarActa(Jurado* jurado);
         void exportarActa(Jurado* jurado);
+        void writeCSV();
+        void readCSV();
 };
 
 #endif // UNIVERSIDAD_H

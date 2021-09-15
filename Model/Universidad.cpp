@@ -2,11 +2,97 @@
 
 Universidad::Universidad()
 {
-    this->asistentes[1] = Asistente("I", 1);
-    this->directores[1] = Director("M", 1);
-    this->directores[11] = Director("J", 11);
-    this->jurados[1] = Jurado("K", 1);
-    this->jurados[11] = Jurado("L", 11);
+    this->asistentes[1] = Asistente("Isaac", 1);
+    this->directores[1] = Director("Mario", 1);
+    this->directores[11] = Director("Juan", 11);
+    this->jurados[1] = Jurado("Kim", 1);
+    this->jurados[11] = Jurado("Luisa", 11);
+}
+
+void Universidad::readCSV()
+{
+    ifstream actasCSV, asistentesCSV, juradosCSV, directoresCSV;
+    actasCSV.open("actas.csv", ios::in);
+    asistentesCSV.open("asistentes.csv");
+    juradosCSV.open("jurados.csv");
+    directoresCSV.open("directores.csv");
+    string linea;
+    //Lectura actas
+    Acta acta;
+    while(getline(actasCSV, linea))
+    {
+        //INCOMPLETO DEBIDO A QUE NO SE PUDO HACER
+    }
+    //Lectura asistentes
+
+    //Lectura jurados
+
+    //Lectura directores
+}
+
+void Universidad::writeCSV()
+{
+    ofstream actasCSV, asistentesCSV, juradosCSV, directoresCSV; 
+    actasCSV.open("actas.csv");
+    asistentesCSV.open("asistentes.csv");
+    juradosCSV.open("jurados.csv");
+    directoresCSV.open("directores.csv");
+    //Escritura de las actas
+    for(map<int, Acta>::iterator pActa = actas.begin(); pActa != actas.end(); pActa++)
+    {
+        Acta actual = pActa->second;
+        actasCSV << actual.getNombreTrabajo() << ",";
+        actasCSV << actual.getAutor() << ",";
+        actasCSV << actual.getNumeroTrabajo() << ",";
+        actasCSV << actual.getTipoTrabajo() << ",";
+        actasCSV << actual.getFecha() << ",";
+        actasCSV << actual.getObvAdicionales() << ",";
+        actasCSV << actual.getCondiciones() << ",";
+        for(int i = 0; i < 4; i++)
+        {
+            actasCSV << actual.getJurados()[i] << ",";
+        }
+        for(int i = 0; i < 4; i++)
+        {
+            actasCSV << actual.getDirectores()[i] << ",";
+        }
+        actual.writeCSV("actas.csv");
+        actasCSV << endl;
+    }
+    actasCSV.close();
+    //Escritura de los asistentes
+    for(map<int, Asistente>::iterator pAsistente = asistentes.begin(); pAsistente != asistentes.end(); pAsistente++)
+    {
+        Asistente actual = pAsistente->second;
+        asistentesCSV << actual.getNombre() << ",";
+        asistentesCSV << actual.getDocumento() << ",";
+        actual.writeCSV("asistentes.csv");
+        asistentesCSV << endl;
+    }
+    asistentesCSV.close();
+    //Escritura de los jurados
+    for(map<int, Jurado>::iterator pJurado = jurados.begin(); pJurado != jurados.end(); pJurado++)
+    {
+        Jurado actual = pJurado->second;
+        juradosCSV << actual.getNombre() << ",";
+        juradosCSV << actual.getDocumento() << ",";
+        juradosCSV << endl;
+    }
+    juradosCSV.close();
+    //Escritura de los directores
+    for(map<int, Director>::iterator pDirector = directores.begin(); pDirector != directores.end(); pDirector++)
+    {
+        Director actual = pDirector->second;
+        directoresCSV << actual.getNombre() << ",";
+        directoresCSV << actual.getDocumento() << ",";
+        directoresCSV << endl;
+    }
+    directoresCSV.close();
+}
+
+void Universidad::readCSV()
+{
+
 }
 
 void Universidad::crearAsistente()

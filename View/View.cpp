@@ -117,7 +117,8 @@ void View::mostrarMenu()
         case 4: 
             menuReportes();
             break;
-        case 0: cout << "Hasta luego";
+        case 0: this->javeriana.writeCSV();
+            cout << "Hasta luego";
             break;
         default: cout << "Opcion no contemplada, intentelo de nuevo\n";
             break;

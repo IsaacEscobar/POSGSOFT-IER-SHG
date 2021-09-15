@@ -2,14 +2,30 @@
 
 Acta::Acta()
 {
-    criterios[1] = Criterio(1, "Buena ortografia", 0.2, "");
-    criterios[2] = Criterio(2, "Cumple los requisitos exigidos", 0.2, "");
-    criterios[3] = Criterio(3, "Demuestra una buena sustentacion", 0.1, "");
-    criterios[4] = Criterio(4, "Elabora de manera adecuada el tema asignado", 0.05, "");
-    criterios[5] = Criterio(5, "Manejo de fuentes de manera correcta", 0.2, "");
-    criterios[6] = Criterio(6, "Utiliza de manera correcta los recursos visuales y textuales", 0.1, "");
-    criterios[7] = Criterio(7, "Presenta un esquema completo", 0.1, "");
-    criterios[8] = Criterio(8, "Entrega en el plazo asignado", 0.05, "");
+    criterios[1] = Criterio(1, "Buena ortografia", 0.2, " ", 0);
+    criterios[2] = Criterio(2, "Cumple los requisitos exigidos", 0.2, " ", 0);
+    criterios[3] = Criterio(3, "Demuestra una buena sustentacion", 0.1, " ", 0);
+    criterios[4] = Criterio(4, "Elabora de manera adecuada el tema asignado", 0.05, " ", 0);
+    criterios[5] = Criterio(5, "Manejo de fuentes de manera correcta", 0.2, "", 0);
+    criterios[6] = Criterio(6, "Utiliza de manera correcta los recursos visuales y textuales", 0.1, " ", 0);
+    criterios[7] = Criterio(7, "Presenta un esquema completo", 0.1, " ", 0);
+    criterios[8] = Criterio(8, "Entrega en el plazo asignado", 0.05, " ", 0);
+}
+
+void Acta::writeCSV(string archivo)
+{
+    ofstream csv;
+    csv.open(archivo, ios::app);
+    for(map<int, Criterio>::iterator pCriterio = criterios.begin(); 
+         pCriterio != criterios.end(); pCriterio++)
+        {
+            Criterio actual = pCriterio->second;
+            csv << actual.getIdentificador() << ",";
+            csv << actual.getEnunciado() << ",";
+            csv << actual.getPonderacion() << ",";
+            csv << actual.getComentarios() << ",";
+            csv << actual.getCalificaciones() << ",";
+        }
 }
 
 void Acta::mostrarActa()

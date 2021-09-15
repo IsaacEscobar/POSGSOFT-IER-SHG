@@ -24,6 +24,7 @@
     "memory_resource": "cpp",
     "limits": "cpp",
     "memory": "cpp",
-    "type_traits": "cpp"
+    "type_traits": "cpp",
+    "iosfwd": "cpp"
   }
 }

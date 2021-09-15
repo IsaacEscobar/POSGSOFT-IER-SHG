@@ -21,7 +21,7 @@ private: //Atributos
 
 public:																												  //Metodos
 	Criterio();																										  //Constructor
-	Criterio(int identificador, string enunciado, float ponderacion, string comentarios); 
+	Criterio(int identificador, string enunciado, float ponderacion, string comentarios, int calificaciones); 
 	// Gets and sets
 	int getIdentificador();
 	void setIdentificador(int identificador);

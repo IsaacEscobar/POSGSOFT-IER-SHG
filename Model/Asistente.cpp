@@ -5,6 +5,16 @@ Asistente::Asistente()
 
 }
 
+void Asistente::writeCSV(string archivo)
+{
+    ofstream csv;
+    csv.open(archivo, ios::app);
+    for(vector<int>::iterator pActas = actas.begin(); pActas != actas.end(); pActas++)
+    {
+        csv << *pActas << ",";
+    }
+}
+
 Asistente::Asistente(string nombre, int documento)
 {
     this->nombre = nombre;
@@ -41,4 +51,9 @@ void Asistente::generarActa(int numeroTrabajo, Acta* acta)
     acta->setFecha(fecha);
     acta->setNumeroTrabajo(numeroTrabajo);
     actas.push_back(numeroTrabajo);
+}
+
+vector<int> Asistente::getActasAsistente()
+{
+    return this->actas;
 }
