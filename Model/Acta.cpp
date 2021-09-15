@@ -121,6 +121,40 @@ void Acta::calificar()
     }
 }
 
+void Acta::exportarActa()
+{
+    ofstream archivo;
+    archivo.open("reporteActa.txt");
+    archivo << "Nombre Trabajo: " << getNombreTrabajo() << "\n";
+    archivo << "Autor: " << getAutor() << "\n";
+    switch(getTipoTrabajo())
+    {
+        case 1: archivo << "Tipo: Investigacion\n";
+            break;
+        case 2: archivo << "Tipo: Aplicado\n";
+            break;
+    }
+    archivo << "Numero de trabajo: " << getNumeroTrabajo() << "\n";
+    archivo << "Jurado 1: " << getJurados()[0] << "-" << getJurados()[1] << "\n";
+    archivo << "Jurado 2: " << getJurados()[2] << "-" << getJurados()[3] << "\n";
+    archivo << "Director: " << getDirectores()[0] << "-" << getDirectores()[1] << "\n";
+    archivo << "Codirector: " << getDirectores()[2] << "-" << getDirectores()[3] << "\n";
+    archivo << "Fecha: " << getFecha() << "\n";
+    archivo << "Observaciones adicionales: " << getObvAdicionales() << "\n";
+    archivo << "Condiciones: " << getCondiciones() << "\n";
+    for(map<int, Criterio>::iterator pCriterio = criterios.begin(); pCriterio != criterios.end(); pCriterio++)
+    {
+        Criterio actual = pCriterio->second;
+        archivo << "Criterio No. " << actual.getIdentificador() << "\n";
+        archivo << "Enunciado: " << actual.getEnunciado() << "\n";
+        archivo << "Ponderacion: " << actual.getPonderacion() * 100<< "%\n";
+        archivo << "Comentarios: " << actual.getComentarios() << "\n";
+        archivo << "Calificaciones: " << actual.getCalificaciones() << "\n";
+    }
+    cout << "Acta exportada a la carpeta.\n";
+    archivo.close();
+}
+
 string Acta::getNombreTrabajo() 
 {
     return nombreTrabajo;

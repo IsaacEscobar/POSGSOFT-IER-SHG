@@ -7,6 +7,7 @@
 #include <limits>
 #include <map>
 #include <array>
+#include <fstream>
 #include "Criterio.h"
 
 
@@ -16,6 +17,8 @@ using std::endl;
 using std::string;
 using std::array;
 using std::map;
+using std::iterator;
+using std::ofstream;
 
 enum class tipo{Investigacion = 1, Aplicado = 2};
 
@@ -55,6 +58,7 @@ class Acta
 		void modificarCriterio(int posicion);
         void crearCriterio();
         void calificar();
+        void exportarActa();
 };
 
 #endif // ACTA_H

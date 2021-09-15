@@ -325,6 +325,36 @@ void Universidad::calificarActa(Jurado* jurado)
     } while(!existeActaPorNum);
 }
 
+void Universidad::exportarActa(Jurado* jurado)
+{
+    int opcionUsuario;
+    bool existeActaPorNum = false;
+    for(map<int, Acta>::iterator pActa = actas.begin(); pActa != actas.end(); pActa++)
+    {
+        Acta actaActual = pActa->second;
+        if(stoi(actaActual.getJurados()[1]) == jurado->getDocumento() || 
+           stoi(actaActual.getJurados()[3]) == jurado->getDocumento())
+        {
+            cout << "Acta No." << actaActual.getNumeroTrabajo() << "\n";
+        }
+    }
+    do
+    {
+        cout << "Ingrese el numero del acta:\n";
+        cin >> opcionUsuario;
+        if(this->actas.find(opcionUsuario) != this->actas.end())
+        {
+            existeActaPorNum = true;
+            actas[opcionUsuario].exportarActa();
+        }
+        else
+        {
+            existeActaPorNum = false;
+            cout << "Numero de acta inexistente, use otro.\n";
+        }
+    } while(!existeActaPorNum);
+}
+
 void Universidad::menuJurado(Jurado* jurado)
 {
     int opcionUsuario;
@@ -339,11 +369,9 @@ void Universidad::menuJurado(Jurado* jurado)
         {
             case 1:
                 calificarActa(jurado);
-                //jurado->calificarActa(actas[0]);
                 break;
             case 2:
-                jurado->exportarActa(actas[0]);
-                
+                exportarActa(jurado);
                 break;
             case 0:
                 break;

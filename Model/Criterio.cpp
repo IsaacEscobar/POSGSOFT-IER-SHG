@@ -13,6 +13,7 @@ Criterio::Criterio(int identificador, string enunciado, float ponderacion, strin
 	this->enunciado = enunciado;
 	this->ponderacion = ponderacion;
 	this->comentarios = comentarios;
+	this->calificaciones = 0;
 }
 
 void Criterio::mostrarCriterio()

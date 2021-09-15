@@ -48,6 +48,7 @@ class Universidad
         void modCriteriosDirector(Director* director);
         void crearCriterio(Director* director);
         void calificarActa(Jurado* jurado);
+        void exportarActa(Jurado* jurado);
 };
 
 #endif // UNIVERSIDAD_H
