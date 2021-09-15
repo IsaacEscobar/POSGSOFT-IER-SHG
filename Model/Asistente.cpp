@@ -6,6 +6,7 @@ Asistente::Asistente()
 }
 
 Asistente::Asistente(string nombre, int documento)
+    //creamos apuntadores con los atributos de la clase 
 {
     this->nombre = nombre;
     this->documento = documento;
@@ -18,7 +19,8 @@ void Asistente::mostrarNumActasPoseidas()
         cout << "Acta No." << *pActas << "\n";
     }
 }
-
+// solicita datos necesarios para el acta 
+// esta queda en el apuntador oara finalmente mostrarla
 void Asistente::generarActa(int numeroTrabajo, Acta* acta)
 {
     string nombreTrabajo, autor, fecha;
