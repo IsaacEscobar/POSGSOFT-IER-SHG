@@ -1,6 +1,8 @@
 #include "Acta.h"
 
 Acta::Acta()
+// inicializamos los 8 criterios 
+//asignandole valor de ponderacion , para posible cambio si asi lo desea el director 
 {
     criterios[1] = Criterio(1, "Buena ortografia", 0.2, " ", 0);
     criterios[2] = Criterio(2, "Cumple los requisitos exigidos", 0.2, " ", 0);
@@ -29,6 +31,10 @@ void Acta::writeCSV(string archivo)
 }
 
 void Acta::mostrarActa()
+// mostrar informacion de acta 
+// verificar que tipo de trabajo es y asi asignarlo 
+// guardar infromacion suminstrada en cada item donde esta en el 
+//mapa criterios y asi mostrarlo finalmente
 {
     cout << "Nombre trabajo: " << nombreTrabajo << "\n";
     cout << "Autor: " << autor << "\n";
@@ -54,7 +60,9 @@ void Acta::mostrarActa()
         criterioActual.mostrarCriterio();
     }
 }
-
+// pedir informacion del criterio 
+//el el director lo requiere esta funcion acomoda la ponderacion de cada
+// uno de los 8 cristerios establecidos
 void Acta::modificarCriterio(int posicion)
 {
     string enunciado;
@@ -67,7 +75,9 @@ void Acta::modificarCriterio(int posicion)
     criterios[posicion].setEnunciado(enunciado);
     criterios[posicion].setPonderacion(ponderacion / 100);
 }
-
+// crea un nuevo criterio 
+// valida que su identificador no exista para no repetir 
+//y finalmente imprime la infromacion suministrada por el director 
 void Acta::crearCriterio()
 {
     int identificador;
@@ -99,7 +109,11 @@ void Acta::crearCriterio()
         }
     } while(existeIdentificador);
 }
-
+// verifica que acta exista 
+// verifica que jurado exista 
+//solicita nota en los criterios 
+// y finalmente da su calificacion 
+// genera si fue aprobado o rechazado 
 void Acta::calificar()
 {
     int nota;
@@ -136,6 +150,9 @@ void Acta::calificar()
         cout << "Nota final: " << notaFinal << " - Reprobado\n";
     }
 }
+// se genera un archvio txt 
+// donde cada informacion del acta se imprime utlizando el apuntador
+// ya que esta informacion queda guardda en mapa criterio
 
 void Acta::exportarActa()
 {

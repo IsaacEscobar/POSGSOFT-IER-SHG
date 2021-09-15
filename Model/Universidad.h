@@ -1,6 +1,8 @@
 #ifndef UNIVERSIDAD_H
 #define UNIVERSIDAD_H
 
+//incluimos librerias que necesitamos en nuestra clase
+
 #include <iostream>
 #include <stdlib.h>
 #include <ios>
@@ -27,12 +29,20 @@ using std::ifstream;
 
 class Universidad 
 {
+	// atributos de nuestra clase
     private:
-        map<int, Acta> actas;
-        map<int, Asistente> asistentes;
+        map<int, Acta> actas; // creamos un mapa que es actas
+        					// donde tendremos una llave de tipo entero 
+        					// y su valor es Acta
+        map<int, Asistente> asistentes;// creamos un mapa que es asistentes
+        					// donde tendremos una llave de tipo entero 
+        					// y su valor es asistente
         map<int, Jurado> jurados;
+        					// creamos un mapa que es jurados
+        					// donde tendremos una llave de tipo entero 
+        					// y su valor es jurados
         map<int, Director> directores;
-    public:
+    public: //requerimientos de la clase universidad.
         Universidad();
         void crearAsistente();
         void crearJurado();

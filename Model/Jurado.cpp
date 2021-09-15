@@ -1,6 +1,6 @@
 #include "Jurado.h"
 
-
+// hereda atributos de la clase Padre que es Persona 
 Jurado::Jurado()
 {
     
